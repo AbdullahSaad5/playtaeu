@@ -1,0 +1,74 @@
+.login {
+  min-height: inherit;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+.login .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login .container .heading {
+  margin-top: 10rem;
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  font-weight: lighter;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+.login .container form {
+  width: 280px;
+}
+.login .container form .form-section {
+  width: 100%;
+  margin: 2rem 0;
+}
+.login .container form .form-section.submit {
+  display: grid;
+  place-items: center;
+}
+.login .container form .form-section label {
+  display: block;
+  font-size: 1.4rem;
+  color: #b8b6b4;
+  margin-bottom: 0.5rem;
+}
+.login .container form .form-section input {
+  height: 3.5rem;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  padding: 1rem;
+  color: white;
+  background-color: #32353c;
+}
+.login .container form .form-section input:not([type=submit]) {
+  width: 100%;
+}
+.login .container form .form-section input[type=submit] {
+  cursor: pointer;
+  font-size: 1.5rem;
+  width: 70%;
+  background: linear-gradient(to right, #47bfff, #1a44c2);
+}
+.login .container form .form-section input[type=submit]:hover {
+  filter: brightness(110%);
+}
+.login .container a.signup {
+  margin-top: 5rem;
+  padding: 1rem 3.5rem;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.3rem;
+  background: transparent;
+  color: #b8b6b4;
+  border: 1px solid #b8b6b4;
+  border-radius: 3px;
+  outline: none;
+}
+.login .container a.signup:hover {
+  color: white;
+  border: 1px solid white;
+}

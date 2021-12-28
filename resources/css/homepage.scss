@@ -1,0 +1,13 @@
+.section {
+    height: 100%;
+    .highlights {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        height: 400px;
+
+        @import "gameThumbnail";
+    }
+}

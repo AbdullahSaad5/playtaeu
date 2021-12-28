@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  background-color: #212429;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body nav {
+  z-index: 10;
+  padding: 3rem 0;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  background-color: #171a21;
+}
+body nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body nav ul li {
+  list-style: none;
+  margin: 0 1rem;
+}
+body nav ul li.logo {
+  font-size: 4rem;
+}
+body nav ul li a {
+  text-decoration: none;
+  color: #b8b6b4;
+  transition: all 0.1s ease;
+}
+body nav ul li a:hover {
+  color: white;
+}
+body .main-section {
+  min-height: calc(100vh - 105px);
+}
