@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    <div class="loading">
+        <img src="{{ asset('images/loading.svg') }}" alt="">
+    </div>
     <x-navbar />
     <section class="main-section">
         @yield('content')

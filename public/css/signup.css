@@ -18,6 +18,16 @@
   margin-bottom: 2rem;
   text-transform: uppercase;
 }
+.login .container .error {
+  font-size: 1.7rem;
+  color: white;
+  padding: 1rem 2rem;
+  background-color: #1d1f24;
+  border: 1px solid #b44040;
+}
+.login .container .error .fas .fa-exclamation-circle {
+  margin-right: 0.5rem;
+}
 .login .container form {
   width: 280px;
   align-self: center;
@@ -55,5 +65,5 @@
   background: linear-gradient(to right, #47bfff, #1a44c2);
 }
 .login .container form .form-section input[type=submit]:hover {
-  filter: brightness(110%);
+  filter: brightness(120%);
 }

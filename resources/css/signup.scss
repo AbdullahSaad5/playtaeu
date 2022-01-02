@@ -18,6 +18,17 @@
             margin-bottom: 2rem;
             text-transform: uppercase;
         }
+        .error {
+            font-size: 1.7rem;
+            color: white;
+            padding: 1rem 2rem;
+            background-color: #1d1f24;
+            border: 1px solid #b44040;
+
+            .fas .fa-exclamation-circle {
+                margin-right: 0.5rem;
+            }
+        }
         form {
             width: 280px;
             align-self: center;
@@ -58,7 +69,7 @@
                     );
 
                     &:hover {
-                        filter: brightness(110%);
+                        filter: brightness(120%);
                     }
                 }
             }

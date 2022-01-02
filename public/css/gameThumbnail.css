@@ -1,16 +1,32 @@
 .game-thumbnail {
-  height: 100%;
+  height: inherit;
   display: block;
   aspect-ratio: 0.835;
   box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.75);
   margin: 2rem 1rem;
   position: relative;
+  overflow: hidden;
   cursor: pointer;
+}
+.game-thumbnail .overlay-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.game-thumbnail .main {
+  width: 100%;
+  height: 100%;
 }
 .game-thumbnail .main img {
   display: block;
   width: 100%;
   height: 100%;
+  -webkit-animation: showElement 0.6s ease;
+          animation: showElement 0.6s ease;
 }
 .game-thumbnail .main p {
   color: black;
@@ -22,4 +38,128 @@
   bottom: 2rem;
   right: 0;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.25);
+}
+.game-thumbnail .hover {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.game-thumbnail .hover .autoplay,
+.game-thumbnail .hover .info {
+  width: 100%;
+  height: 50%;
+}
+.game-thumbnail .hover .autoplay {
+  -webkit-animation: hideElement 0.6s ease;
+          animation: hideElement 0.6s ease;
+  transition: 0.6s all ease;
+  transform: translateY(200%);
+}
+.game-thumbnail .hover .autoplay video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.game-thumbnail .hover .info {
+  -webkit-animation: hideElement 0.6s ease;
+          animation: hideElement 0.6s ease;
+  transition: 0.6s all ease;
+  transform: translateY(100%);
+  position: relative;
+  padding: 2rem 3rem;
+  background: linear-gradient(315deg, #213c55 5%, #016968 95%);
+  color: white;
+  z-index: 4;
+}
+.game-thumbnail .hover .info h4 {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+.game-thumbnail .hover .info p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.game-thumbnail .hover .info p span.gray-text {
+  color: #959595;
+  margin-right: 0.5rem;
+  text-transform: uppercase;
+}
+.game-thumbnail .hover .info h4 a.info-links,
+.game-thumbnail .hover .info p a.info-links {
+  text-decoration: none;
+  color: white;
+}
+.game-thumbnail .hover .info h4 a.info-links:not(:last-child)::after,
+.game-thumbnail .hover .info p a.info-links:not(:last-child)::after {
+  content: ",";
+}
+.game-thumbnail .hover .info h4 a.info-links:hover,
+.game-thumbnail .hover .info p a.info-links:hover {
+  text-decoration: underline;
+}
+.game-thumbnail .hover .info button.get-button {
+  cursor: pointer;
+  padding: 0.8rem 2rem;
+  font-size: 1.4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  color: white;
+  background: linear-gradient(to bottom, #a4d007 5%, #536904 95%);
+  position: absolute;
+  bottom: 0px;
+  margin-bottom: 2rem;
+  border-radius: 0.3rem;
+}
+.game-thumbnail .hover .info button.get-button:hover {
+  filter: brightness(120%);
+}
+.game-thumbnail:hover .hover .autoplay,
+.game-thumbnail:hover .hover .info {
+  transform: translateY(0);
+  -webkit-animation: showElement 0.6s ease;
+          animation: showElement 0.6s ease;
+}
+.game-thumbnail:hover .hover button {
+  bottom: 0px;
+}
+.game-thumbnail:hover .main img {
+  -webkit-animation: hideElement 0.6s ease;
+          animation: hideElement 0.6s ease;
+}
+
+@-webkit-keyframes hideElement {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hideElement {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes showElement {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes showElement {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

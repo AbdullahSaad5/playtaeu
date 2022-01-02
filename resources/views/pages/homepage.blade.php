@@ -7,10 +7,12 @@
 @section('content')
     <section class="section homepage">
         <div class="highlights">
-            @for ($i = 0; $i < 3; $i++)
-                <x-game-thumbnail image="https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png"
-                    price="14" />
-            @endfor
+            @foreach ($data as $obj)
+                <x-game-thumbnail :gameID="$obj->game_id" :image="$obj->game_thumbnail_image"
+                    :video="$obj->game_thumbnail_video" :title="$obj->game_title" :price="$obj->game_price"
+                    :developer="$obj->developers" :publisher="$obj->publishers" reviewCount="247,064" />
+
+            @endforeach
         </div>
     </section>
 @endsection
