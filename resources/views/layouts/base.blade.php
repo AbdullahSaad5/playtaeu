@@ -22,6 +22,7 @@
     </section>
 
     <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @yield('scripts')
 </body>
 

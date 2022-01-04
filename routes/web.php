@@ -15,11 +15,15 @@ Route::get('/signup', [PageController::class, 'signup']);
 Route::get('/logout', [PageController::class, 'logout']);
 Route::get('/admin', [PageController::class, 'admin']);
 Route::get('/game/id={id}', [PageController::class, 'displayGame']);
-Route::get('/choose-card/id={id}', [PageController::class, 'chooseCard']);
-Route::get('/addPaymentCard/user={username}', [PageController::class, 'viewAddPaymentCard']);
-Route::get('/update-card/id={card_id}', [PageController::class, 'viewAddPaymentCard']);
+Route::get('/choose-card', [PageController::class, 'chooseCard']);
+Route::get('/addPaymentCard/', [PageController::class, 'viewAddPaymentCard']);
+Route::get('/update-card/id={card_id}', [PageController::class, 'viewEditPaymentCard']);
+Route::get('/cart', [PageController::class, 'viewCart']);
+Route::get('/cart/remove/id={gameID}', [DatabaseController::class, 'removeItem']);
+Route::get('/add-to-cart/id={gameID}', [DatabaseController::class, 'addToCart']);
+Route::get('/checkout', [DatabaseController::class, 'checkout']);
 
 // Post Routes
 Route::post('/login', [DatabaseController::class, 'authenticateUser']);
 Route::post('/signup', [DatabaseController::class, 'registerUser']);
-Route::post('/addPaymentCard/user={username}', [DatabaseController::class, 'addPaymentCard']);
+Route::post('/addPaymentCard/', [DatabaseController::class, 'addPaymentCard']);

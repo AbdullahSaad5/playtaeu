@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class selectCard extends Component
+class cardInfo extends Component
 {
 
     public $cardID;
@@ -30,6 +30,6 @@ class selectCard extends Component
      */
     public function render()
     {
-        return view('components.select-card');
+        return view('components.card-info');
     }
 }

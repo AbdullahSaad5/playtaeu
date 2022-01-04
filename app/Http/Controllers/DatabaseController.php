@@ -49,7 +49,7 @@ class DatabaseController extends Controller
         }
     }
 
-    public function addPaymentCard($username)
+    public function addPaymentCard()
     {
         $request = Request::capture();
         $payment_method = $request->get('payment_method');
@@ -67,9 +67,36 @@ class DatabaseController extends Controller
 
 
         DB::table('payment_card')->insert(
-            ['username' => $username, 'payment_method' => $payment_method, 'card_number' => $card_number, 'security_code' => $security_code, 'expiration_date' => $expiration_date, 'first_name' => $first_name, 'last_name' => $last_name, 'city' => $city, 'billing_address_1' => $billing_address, 'zipcode' => $zipcode, 'billing_address_2' => $billing_address2, 'country' => $country, 'phone_number' => $phone_number]
+            ['username' => Auth::user()->username, 'payment_method' => $payment_method, 'card_number' => $card_number, 'security_code' => $security_code, 'expiration_date' => $expiration_date, 'first_name' => $first_name, 'last_name' => $last_name, 'city' => $city, 'billing_address_1' => $billing_address, 'zipcode' => $zipcode, 'billing_address_2' => $billing_address2, 'country' => $country, 'phone_number' => $phone_number]
         );
 
+        return redirect('/choose-card');
+    }
+
+    public function removeItem($gameID)
+    {
+        DB::delete('DELETE FROM cart WHERE cart.game_id = ? AND cart.username = ?', [$gameID, Auth::user()->username]);
+        $record = DB::select('SELECT * FROM cart WHERE cart.username = ?', [Auth::user()->username]);
+        if (count($record) > 0) {
+            return redirect('/cart');
+        } else {
+            return redirect('/homepage');
+        }
+    }
+
+    public function addToCart($gameID)
+    {
+        DB::insert('INSERT INTO cart (username, game_id) VALUES (?, ?)', [Auth::user()->username, $gameID]);
+        return redirect('/cart');
+    }
+
+    public function checkout()
+    {
+        $cart = DB::select('SELECT * FROM cart WHERE cart.username = ?', [Auth::user()->username]);
+        foreach ($cart as $item) {
+            DB::insert('INSERT INTO owns (username, game_id) VALUES (?, ?)', [Auth::user()->username, $item->game_id]);
+        }
+        DB::delete('DELETE FROM cart WHERE cart.username = ?', [Auth::user()->username]);
         return redirect('/homepage');
     }
 }

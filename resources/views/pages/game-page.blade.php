@@ -91,17 +91,31 @@
                             @if ($data->game_linux_support)
                                 <i class="fab fa-linux"></i>
                             @endif
+                            @if ($data->game_mac_support)
+                                <i class="fab fa-apple"></i>
+                            @endif
                         </span>
                     </h2>
-                    <p>Get {{ $data->game_title }} Today for {{ $data->game_price ? $data->game_price : 'Free' }}.
+                    <p>Get {{ $data->game_title }} Today for {{ $data->game_price ? '$' . $data->game_price : 'Free' }}.
                         Sieze the chance.</p>
                     <div class="button-container">
-                        @if ($data->game_price == 0)
-                            <p class="price">Free</p>
-                            <a class="get-button" href="/choose-card/id={{ $data->game_id }}">Get Now</button>
-                            @else
-                                <p class="price">${{ $data->game_price }}</p>
-                                <a class="get-button" href="/choose-card/id={{ $data->game_id }}">Buy Now</a>
+                        @php
+                            $cart = DB::select('SELECT cart.game_id FROM cart WHERE cart.username = ? AND cart.game_id = ?', [Auth::user()->username, $data->game_id]);
+                            $own = DB::select('SELECT owns.game_id FROM owns WHERE owns.username = ? AND owns.game_id = ?', [Auth::user()->username, $data->game_id]);
+                        @endphp
+                        @if (count($cart) > 0)
+                            <a class="get-button" href="/cart/">Game In Cart</a>
+
+                        @elseif (count($own) > 0)
+                            <a class="get-button" href="">Owned</a>
+                        @else
+                            @if ($data->game_price == 0)
+                                <p class="price">Free</p>
+                                <a class="get-button" href="/add-to-cart/id={{ $data->game_id }}">Get Now</button>
+                                @else
+                                    <p class="price">${{ $data->game_price }}</p>
+                                    <a class="get-button" href="/add-to-cart/id={{ $data->game_id }}">Buy Now</a>
+                            @endif
                         @endif
                     </div>
                 </div>

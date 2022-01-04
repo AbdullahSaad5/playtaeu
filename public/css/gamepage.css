@@ -1,5 +1,5 @@
 .gamepage {
-  height: calc(100vh - 108px);
+  min-height: calc(100vh - 108px);
   width: 100%;
   padding-top: 2rem;
   color: white;

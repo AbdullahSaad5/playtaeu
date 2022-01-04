@@ -78,6 +78,21 @@ class PageController extends Controller
         }
     }
 
+    public function viewCart()
+    {
+        if (Auth::check()) {
+            $data = DB::select('SELECT game.game_id, game.game_cover_image, game.game_title, game.game_price, game.game_linux_support, game.game_windows_support, game.game_mac_support FROM game where game.game_id in (SELECT cart.game_id from cart where cart.username = ?)', [Auth::user()->username]);
+
+            $total = 0;
+            foreach ($data as $obj) {
+                $total += $obj->game_price;
+            }
+            return view('pages.shopping-cart', ['data' => $data, 'total' => $total]);
+        } else {
+            return redirect('/login');
+        }
+    }
+
     public function displayGame($id)
     {
         $data = DB::select('SELECT * FROM game WHERE game_id = ?', [$id])[0];
@@ -94,19 +109,19 @@ class PageController extends Controller
         }
     }
 
-    public function chooseCard($id)
+    public function chooseCard()
     {
         $username = Auth::user()->username;
         $data = DB::select('SELECT * FROM payment_card WHERE username = ?', [$username]);
         if (count($data) == 0) {
             return redirect('/addPaymentCard/user=' . $username);
         }
-        return view('pages.choose-card', ['data' => $data, 'id' => $id]);
+        return view('pages.choose-card', ['data' => $data]);
     }
 
-    public function viewAddPaymentCard($user)
+    public function viewAddPaymentCard()
     {
-        return view('pages.add-payment-card', ['user' => $user]);
+        return view('pages.add-payment-card', ['user' => Auth::user()->username], ['data' => null]);
     }
 
     public function viewEditPaymentCard($card_id)

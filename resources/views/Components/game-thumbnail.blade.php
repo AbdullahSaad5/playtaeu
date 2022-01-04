@@ -50,11 +50,25 @@
                 <span class="gray-text">All Reviews:</span>
                 <span><a href="" class="info-links">{{ $reviewCount }}</a></span>
             </p>
-            @if ($price == 0)
-                <a class="get-button" href="/choose-card/id={{ $gameID }}">Get Now</a>
+            @php
+                $record = DB::select('SELECT cart.game_id FROM cart WHERE cart.username = ? AND cart.game_id = ?', [Auth::user()->username, $gameID]);
+                $own = DB::select('SELECT owns.game_id FROM owns WHERE owns.username = ? AND owns.game_id = ?', [Auth::user()->username, $gameID]);
+                
+            @endphp
+            @if (count($record) > 0)
+                <a class="get-button" href="/cart/">Game In Cart</a>
+
+            @elseif (count($own) > 0)
+                <a class="get-button" href="">Owned</a>
+
             @else
-                <a class="get-button" href="/choose-card/id={{ $gameID }}">Add to Cart</a>
+                @if ($price == 0)
+                    <a class="get-button" href="/add-to-cart/id={{ $gameID }}">Get Now</a>
+                @else
+                    <a class="get-button" href="/add-to-cart/id={{ $gameID }}">Add to Cart</a>
+                @endif
             @endif
+
         </div>
     </div>
 </div>
