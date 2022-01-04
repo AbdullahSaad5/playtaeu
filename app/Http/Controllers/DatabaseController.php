@@ -48,4 +48,28 @@ class DatabaseController extends Controller
             return redirect('/signup')->with('error', $error);
         }
     }
+
+    public function addPaymentCard($username)
+    {
+        $request = Request::capture();
+        $payment_method = $request->get('payment_method');
+        $card_number = request('card-number');
+        $security_code = request('security-code');
+        $expiration_date = request('expiration-date');
+        $first_name = request('first-name');
+        $last_name = request('last-name');
+        $city = request('city');
+        $billing_address = request('billing-address');
+        $zipcode = request('zipcode');
+        $billing_address2 = request('secondary-billing-address');
+        $country = $request->get('country');
+        $phone_number = request('phone-number');
+
+
+        DB::table('payment_card')->insert(
+            ['username' => $username, 'payment_method' => $payment_method, 'card_number' => $card_number, 'security_code' => $security_code, 'expiration_date' => $expiration_date, 'first_name' => $first_name, 'last_name' => $last_name, 'city' => $city, 'billing_address_1' => $billing_address, 'zipcode' => $zipcode, 'billing_address_2' => $billing_address2, 'country' => $country, 'phone_number' => $phone_number]
+        );
+
+        return redirect('/homepage');
+    }
 }

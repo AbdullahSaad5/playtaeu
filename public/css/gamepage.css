@@ -30,12 +30,18 @@
   flex: 2;
   display: flex;
   flex-direction: column;
+  transition: all 1s ease;
 }
-.gamepage .main .display-section .showcase video {
+.gamepage .main .display-section .showcase .main-video,
+.gamepage .main .display-section .showcase .main-img {
   width: 100%;
   aspect-ratio: 16/9;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.gamepage .main .display-section .showcase .main-video.hidden,
+.gamepage .main .display-section .showcase .main-img.hidden {
+  display: none;
 }
 .gamepage .main .display-section .showcase .thumbnails {
   flex: 1;
@@ -45,12 +51,13 @@
 }
 .gamepage .main .display-section .showcase .thumbnails .image-container {
   cursor: pointer;
-  height: 70px;
+  height: 68px;
 }
 .gamepage .main .display-section .showcase .thumbnails .image-container:not(:first-child) {
   margin-left: 0.5rem;
 }
-.gamepage .main .display-section .showcase .thumbnails .image-container img {
+.gamepage .main .display-section .showcase .thumbnails .image-container img,
+.gamepage .main .display-section .showcase .thumbnails .image-container video {
   height: 100%;
 }
 .gamepage .main .side {
@@ -143,14 +150,16 @@
   justify-content: space-between;
   align-items: center;
   background-color: black;
-  padding: 0.3rem 0.5rem;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
 }
 .gamepage .buy-section .offer .button-container p {
   padding: 0 1rem;
   font-size: 2rem;
 }
-.gamepage .buy-section .offer .button-container button {
+.gamepage .buy-section .offer .button-container a.get-button {
   cursor: pointer;
+  text-decoration: none;
   padding: 0.8rem 2rem;
   font-size: 1.4rem;
   font-family: Arial, Helvetica, sans-serif;
@@ -160,6 +169,6 @@
   bottom: 0px;
   border-radius: 0.3rem;
 }
-.gamepage .buy-section .offer .button-container button:hover {
+.gamepage .buy-section .offer .button-container a.get-button:hover {
   filter: brightness(120%);
 }

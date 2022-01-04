@@ -1,0 +1,14 @@
+.section.choose-card {
+    min-height: calc(100vh - 108px);
+    padding-bottom: 5rem;
+    background-color: #1b2838;
+    display: flex;
+    justify-content: center;
+    .add-payment-card {
+        @import "addPaymentCard";
+    }
+    .choose-payment-card {
+        width: 550px;
+        @import "selectCard";
+    }
+}

@@ -111,8 +111,9 @@
 .section .highlights .game-thumbnail .hover .info p a.info-links:hover {
   text-decoration: underline;
 }
-.section .highlights .game-thumbnail .hover .info button.get-button {
+.section .highlights .game-thumbnail .hover .info a.get-button {
   cursor: pointer;
+  text-decoration: none;
   padding: 0.8rem 2rem;
   font-size: 1.4rem;
   font-family: Arial, Helvetica, sans-serif;
@@ -124,7 +125,7 @@
   margin-bottom: 2rem;
   border-radius: 0.3rem;
 }
-.section .highlights .game-thumbnail .hover .info button.get-button:hover {
+.section .highlights .game-thumbnail .hover .info a.get-button:hover {
   filter: brightness(120%);
 }
 .section .highlights .game-thumbnail:hover .hover .autoplay,
@@ -133,7 +134,7 @@
   -webkit-animation: showElement 0.6s ease;
           animation: showElement 0.6s ease;
 }
-.section .highlights .game-thumbnail:hover .hover button {
+.section .highlights .game-thumbnail:hover .hover a {
   bottom: 0px;
 }
 .section .highlights .game-thumbnail:hover .main img {

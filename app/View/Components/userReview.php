@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class user-review extends Component
+class userReview extends Component
 {
     /**
      * Create a new component instance.

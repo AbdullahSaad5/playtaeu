@@ -6,5 +6,6 @@
 @section('content')
     <section class="section admin">
         <h1>This is admin</h1>
+        <x-select-card />
     </section>
 @endsection

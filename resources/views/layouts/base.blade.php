@@ -20,6 +20,9 @@
     <section class="main-section">
         @yield('content')
     </section>
+
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    @yield('scripts')
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <div class="game-thumbnail">
     {{-- Anchor tag --}}
-    <a class="overlay-link" href="game/{{ $gameID }}">
+    <a class="overlay-link" href="game/id={{ $gameID }}">
 
     </a>
     {{-- Main thumbnail --}}
@@ -20,7 +20,8 @@
             </video>
         </div>
         <div class="info">
-            <h4 class="game-title"><a href="" class="info-links">{{ $title }}</a></h4>
+            <h4 class="game-title"><a href="game/id={{ $gameID }}"
+                    class="info-links">{{ $title }}</a></h4>
             <p class="developer-info">
                 <span class="gray-text">Developer:</span>
                 @php
@@ -50,9 +51,9 @@
                 <span><a href="" class="info-links">{{ $reviewCount }}</a></span>
             </p>
             @if ($price == 0)
-                <button class="get-button">Get Now</button>
+                <a class="get-button" href="/choose-card/id={{ $gameID }}">Get Now</a>
             @else
-                <button class="get-button">Add to Cart</button>
+                <a class="get-button" href="/choose-card/id={{ $gameID }}">Add to Cart</a>
             @endif
         </div>
     </div>

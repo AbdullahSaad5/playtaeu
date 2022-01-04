@@ -2,92 +2,143 @@
 
 @section('links')
     <link rel="stylesheet" href="{{ asset('css/gamepage.css') }}">
-
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 @endsection
 
 
 @section('content')
     <section class="section gamepage">
         <div class="main">
-            <h1>F1® 2021</h1>
+            <h1>{{ $data->game_title }}</h1>
             <div class="display-section">
                 <div class="showcase">
-                    <video autoplay loop muted controls>
-                        <source src="https://cdn.akamai.steamstatic.com/steam/apps/256851324/movie480_vp9.webm?t=1631530629"
-                            type="">
-                    </video>
+                    <div class="main-content">
+                        <video class="main-video" autoplay loop muted controls>
+                            <source src="{{ $data->game_detail_video }}" type="">
+                        </video>
+                        <img class="main-img hidden" src="" alt="">
+                    </div>
                     <div class="thumbnails">
                         <div class="image-container">
-                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/1134570/ss_1e96e891f5bba7cab6c8321af3936b0d42ddbd41.600x338.jpg?t=1636296403"
-                                alt="">
+                            <video class="main-video">
+                                <source src="{{ $data->game_detail_video }}" type="">
+                            </video>
                         </div>
                         <div class="image-container">
-                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/1134570/ss_e548290d5d6b92171b1c0467613982badec1ff4e.600x338.jpg?t=1636296403"
-                                alt="">
+                            <img src="{{ $data->game_detail_image1 }}" alt="">
                         </div>
                         <div class="image-container">
-                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/1134570/ss_817126d9ac6b610396eebfaf241db6c620bc245e.600x338.jpg?t=1636296403"
-                                alt="">
+                            <img src="{{ $data->game_detail_image2 }}" alt="">
                         </div>
                         <div class="image-container">
-                            <img src="https://cdn.akamai.steamstatic.com/steam/apps/1134570/ss_06ec0d462384aeede236e97e15e35eff1e1fd1d0.600x338.jpg?t=1636296403"
-                                alt="">
+                            <img src="{{ $data->game_detail_image3 }}" alt="">
                         </div>
+                        <div class="image-container">
+                            <img src="{{ $data->game_detail_image4 }}" alt="">
+                        </div>
+
                     </div>
                 </div>
                 <div class="side">
-                    <img src="https://cdn.akamai.steamstatic.com/steam/apps/1134570/header.jpg?t=1636296403" alt="">
+                    <img src="{{ $data->game_cover_image }}" alt="">
                     <div class="info">
                         <div class="description">
-                            <p>Every story has a beginning in F1® 2021, the official videogame of the 2021 FIA FORMULA ONE
-                                WORLD CHAMPIONSHIP™. Enjoy the stunning new features of F1® 2021, including the thrilling
-                                story experience ‘Braking Point’, two-player Career, and get even closer to the grid with
-                                ‘Real-Season Start’.
-                            </p>
+                            <p>{{ $data->game_description }}</p>
                         </div>
                         <div class="reviews">
                             <p><span class="gray-text">All Reviews:</span><span class="blue-text">Very
                                     Positive</span> </p>
                         </div>
                         <div class="release-date">
-                            <p><span class="gray-text">Release Date:</span><span class="date">12th Jun,
-                                    2019</span> </p>
+                            <p><span class="gray-text">Release Date:</span><span
+                                    class="date">{{ $data->game_release_date }}</span> </p>
                         </div>
                         <div class="developers">
-                            <p><span class="gray-text">Developers:</span><span class="blue-text"><a
-                                        href="">Codemasters</a> </span> </p>
+                            <p><span class="gray-text">Developers:</span>
+                                <span class="blue-text">
+                                    @foreach ($data->developers as $developer)
+                                        <a href="{{ $developer->developer_website }}"
+                                            target="_blank">{{ $developer->developer_name }}</a>
+                                    @endforeach
+                                </span>
+                            </p>
                         </div>
                         <div class="publishers">
-                            <p><span class="gray-text">Publishers:</span><span class="blue-text"><a href="">
-                                        Electoric Arts</a></span> </p>
+                            <p><span class="gray-text">Publishers:</span>
+                                <span class="blue-text">
+                                    @foreach ($data->publishers as $publisher)
+                                        <a href="{{ $publisher->publisher_website }}"
+                                            target="_blank">{{ $publisher->publisher_name }}</a>
+                                    @endforeach
+                                </span>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="buy-section">
                 <div class="offer">
-                    <h2>Buy F1 2021 <span class="logo"><i class="fab fa-windows"></i><i
-                                class="fab fa-linux"></i></span></h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores architecto recusandae corporis vel
-                        iusto necessitatibus delectus aspernatur odit quam nesciunt?</p>
+                    <h2>
+                        @if ($data->game_price == 0)
+                            Get {{ $data->game_title }} for Free!
+                        @else
+                            Buy {{ $data->game_title }}
+                        @endif
+                        <span class="logo">
+                            @if ($data->game_windows_support)
+                                <i class="fab fa-windows"></i>
+                            @endif
+                            @if ($data->game_linux_support)
+                                <i class="fab fa-linux"></i>
+                            @endif
+                        </span>
+                    </h2>
+                    <p>Get {{ $data->game_title }} Today for {{ $data->game_price ? $data->game_price : 'Free' }}.
+                        Sieze the chance.</p>
                     <div class="button-container">
-                        <p class="price">$23.99</p>
-                        <button class="get-button">Get Now</button>
-                    </div>
-                </div>
-                <div class="offer">
-                    <h2>Buy F1 2021 <span class="logo"><i class="fab fa-windows"></i><i
-                                class="fab fa-linux"></i></span></h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores architecto recusandae corporis vel
-                        iusto necessitatibus delectus aspernatur odit quam nesciunt?</p>
-                    <div class="button-container">
-                        <p class="price">$23.99</p>
-                        <button class="get-button">Get Now</button>
+                        @if ($data->game_price == 0)
+                            <p class="price">Free</p>
+                            <a class="get-button" href="/choose-card/id={{ $data->game_id }}">Get Now</button>
+                            @else
+                                <p class="price">${{ $data->game_price }}</p>
+                                <a class="get-button" href="/choose-card/id={{ $data->game_id }}">Buy Now</a>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
-
-
     </section>
+@endsection
+
+
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            let main_video = document.querySelector('.main-video');
+            let main_img = document.querySelector('.main-img');
+            let main_content = $('.main-content');
+            let thumbnails = $('.thumbnails')[0];
+            thumbnails.addEventListener('click', function(e) {
+                let target = e.target;
+                let src = target.src
+                if (target.tagName === 'IMG') {
+                    main_content.fadeOut(100, () => {
+                        main_img.src = src;
+                        main_img.classList.remove('hidden');
+                        main_video.classList.add('hidden');
+                    }).fadeIn(100);
+
+                } else {
+                    main_content.fadeOut(200, () => {
+                        main_img.classList.add('hidden');
+                        main_video.classList.remove('hidden');
+                        main_video.children[0].src = src;
+                        main_video.currentTime = 0;
+                    });
+                    main_content.fadeIn(200);
+                }
+            });
+
+        });
+    </script>
 @endsection

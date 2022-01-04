@@ -1,0 +1,209 @@
+.section.choose-card {
+  min-height: calc(100vh - 108px);
+  padding-bottom: 5rem;
+  background-color: #1b2838;
+  display: flex;
+  justify-content: center;
+}
+.section.choose-card .add-payment-card .section.add-payment {
+  height: calc(100vh - 108px);
+  background-color: #1b2838;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card .main-heading {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  padding: 3rem 0 0.8rem 0;
+  color: white;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form {
+  max-width: 550px;
+  background-color: #16202d;
+  padding: 3rem 2rem;
+  box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, 0.2);
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form label,
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form input {
+  display: block;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form label {
+  font-size: 1.1rem;
+  color: #c6d4df;
+  margin-bottom: 0.2rem;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form input,
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form select {
+  width: 100%;
+  height: 3rem;
+  margin-top: 0.3rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border-radius: 0.3rem;
+  border: 1px solid #45556c;
+  border-top: none;
+  border-left: none;
+  padding: 0 1rem;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form select {
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url(https://store.akamai.steamstatic.com/public/images/v6/ico/ico_arrow_dn_for_select.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form select:hover, .section.choose-card .add-payment-card .section.add-payment .add-payment-card form select:focus {
+  background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form select option {
+  color: white;
+  background-color: #417a9b;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form select option:hover, .section.choose-card .add-payment-card .section.add-payment .add-payment-card form select option:focus {
+  background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%) !important;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .card-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -moz-column-gap: 5rem;
+       column-gap: 5rem;
+  row-gap: 1.5rem;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .card-info .select-method {
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .card-info .card-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-row: 2/3;
+  grid-column: 1/2;
+  gap: 0.5rem;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .card-info .card-numbers .card-number {
+  flex: 2;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .card-info .card-numbers .security-code {
+  flex: 1;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .card-info .expiration-date {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  padding-right: 2rem;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .personal-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -moz-column-gap: 5rem;
+       column-gap: 5rem;
+  row-gap: 1.5rem;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .personal-info .names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .personal-info .country {
+  grid-row: 4/5;
+  grid-column: 1/2;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .personal-info .phone-number {
+  grid-row: 4/5;
+  grid-column: 2/3;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .personal-info .city,
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .personal-info .zipcode,
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .personal-info .phone-number {
+  padding-right: 2rem;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form p {
+  margin: 3rem 0;
+  color: white;
+  font-size: 1.2rem;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .button-container .submit-button {
+  cursor: pointer;
+  padding: 0.7rem 1.8rem;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  color: white;
+  background: linear-gradient(to bottom, #799905 5%, #536904 95%);
+  border-radius: 0.3rem;
+  display: flex;
+  margin-left: auto;
+}
+.section.choose-card .add-payment-card .section.add-payment .add-payment-card form .button-container .submit-button:hover {
+  filter: brightness(120%);
+}
+.section.choose-card .choose-payment-card {
+  width: 550px;
+}
+.section.choose-card .choose-payment-card .card {
+  color: white;
+  margin-top: 4rem;
+  background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  position: relative;
+}
+.section.choose-card .choose-payment-card .card h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.section.choose-card .choose-payment-card .card h2 span.logo {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+.section.choose-card .choose-payment-card .card h2 span.logo i:not(:first-child) {
+  margin-left: 1.5rem;
+}
+.section.choose-card .choose-payment-card .card p,
+.section.choose-card .choose-payment-card .card a {
+  font-size: 1.3rem;
+  color: #acdbf5;
+  line-height: 2;
+}
+.section.choose-card .choose-payment-card .card a {
+  text-decoration: none;
+}
+.section.choose-card .choose-payment-card .card a:hover {
+  color: white;
+}
+.section.choose-card .choose-payment-card .card .button-container {
+  position: absolute;
+  right: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+}
+.section.choose-card .choose-payment-card .card .button-container p {
+  padding: 0 1rem;
+  font-size: 2rem;
+}
+.section.choose-card .choose-payment-card .card .button-container a.get-button {
+  cursor: pointer;
+  padding: 0.8rem 2rem;
+  font-size: 1.4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  color: white;
+  background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
+  bottom: 0px;
+  border-radius: 0.3rem;
+  line-height: 1.5;
+}
+.section.choose-card .choose-payment-card .card .button-container a.get-button:hover {
+  filter: brightness(120%);
+}
