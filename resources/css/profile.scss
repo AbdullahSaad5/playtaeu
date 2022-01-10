@@ -1,0 +1,94 @@
+.section.profile {
+    min-height: calc(100vh - 108px);
+    background: linear-gradient(180deg, #262d33 -3.38%, #1d1e20 78.58%);
+    display: flex;
+    justify-content: center;
+    color: white;
+
+    .container {
+        width: 1000px;
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: #2f333b;
+            margin-bottom: 4rem;
+            img {
+                width: 65px;
+                height: 65px;
+                object-fit: cover;
+            }
+            p {
+                font-size: 2.5rem;
+                margin-left: 2rem;
+                color: #969696;
+            }
+        }
+        .settings-container {
+            display: flex;
+            gap: 3rem;
+            .navigation {
+                flex: 1;
+                padding: 0 1rem;
+                ul {
+                    list-style: none;
+                    li {
+                        cursor: pointer;
+                        padding: 1rem;
+                        font-size: 14px;
+                        border-radius: 0.3rem;
+                        position: relative;
+                        background-color: transparent;
+                        background: linear-gradient(
+                            to left,
+                            transparent 50%,
+                            #3d4450 50%
+                        );
+                        background-size: 200% 100%;
+                        background-position: right bottom;
+                        transition: all 0.3s ease;
+                        &:not(:first-child) {
+                            margin-top: 1rem;
+                        }
+
+                        &.active {
+                            background-color: #3d4450;
+                        }
+                        &:hover {
+                            background-position: left bottom;
+                        }
+                    }
+                }
+            }
+            .form-container {
+                flex: 4;
+
+                .error {
+                    font-size: 1.7rem;
+                    color: white;
+                    padding: 1rem 2rem;
+                    background-color: #1d1f24;
+                    border: 1px solid #b44040;
+                    margin-bottom: 3rem;
+                }
+
+                .success {
+                    font-size: 1.7rem;
+                    color: white;
+                    padding: 1rem 2rem;
+                    background-color: #1d1f24;
+                    border: 1px solid #44b440;
+                    margin-bottom: 3rem;
+                }
+
+                .hidden {
+                    display: none;
+                }
+
+                @import "profileForm";
+                @import "avatarForm";
+                @import "passwordForm";
+            }
+        }
+    }
+}

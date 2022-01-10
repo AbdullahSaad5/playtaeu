@@ -18,16 +18,17 @@
                         :itemPrice="$item->game_price" />
                 @endforeach
 
-                {{-- <x-cart-item itemNumber="1"
-                    itemImage="https://cdn.akamai.steamstatic.com/steam/apps/359550/capsule_sm_120.jpg?t=1639409141"
-                    itemTitle="Tom Clancy's Rainbow Six Siege" supportedOS="HELLO" itemPrice="5.99" /> --}}
             </div>
             <div class="order-summary">
                 <p class="total-price"><span>Estimated Total:</span><span>${{ $total }}</span></p>
                 <p class="note">Payment Info will be asked on the next page.</p>
                 </p>
                 <div class="button-container">
-                    <a href="/choose-card">Purchase</a>
+                    @if ($total > 0)
+                        <a href="/choose-card">Purchase</a>
+                    @else
+                        <a href="/checkout">Purchase</a>
+                    @endif
                 </div>
             </div>
         </div>

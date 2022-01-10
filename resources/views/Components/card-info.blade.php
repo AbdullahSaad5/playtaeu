@@ -8,7 +8,7 @@
         <p>Owner Name: {{ $ownerName }}</p>
         <p>Card Number: **** **** **** {{ $endingNumber }}</p>
         <p>Expires: {{ $expireMonth }}/{{ $expireYear }}</p>
-        <a href="/update-card/id={{ $cardID }}">Update This</a>
+        <a href="/edit-card/id={{ $cardID }}">Update This</a>
         <div class="button-container">
             <a class="get-button" href="/checkout">Select This Card</a>
         </div>

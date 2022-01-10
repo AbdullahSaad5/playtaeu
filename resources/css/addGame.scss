@@ -1,0 +1,147 @@
+.section.add-game {
+    min-height: calc(100vh - 108px);
+    color: white;
+    background: linear-gradient(180deg, #262d33 -3.38%, #1d1e20 78.58%);
+    display: flex;
+    justify-content: center;
+    .form-container {
+        width: 1000px;
+
+        h2 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            font-weight: 400;
+            text-align: center;
+            margin: 3rem 0 0 0;
+        }
+        p {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #969696;
+        }
+        form {
+            padding: 2rem;
+            h1 {
+                font-size: 1.6rem;
+                color: #e4e4e4;
+                text-transform: uppercase;
+                font-weight: 400;
+                padding: 1rem;
+                border-bottom: solid rgba(228, 228, 228, 0.1);
+                position: relative;
+                left: -2rem;
+                width: calc(100% + 2rem);
+
+                margin-bottom: 3rem;
+                position: relative;
+
+                a {
+                    font-size: 1rem;
+                    color: #969696;
+                    text-transform: uppercase;
+                    position: absolute;
+                    right: 0;
+                }
+            }
+
+            label {
+                display: block;
+                font-size: 13px;
+                color: #969696;
+                font-weight: 300;
+                text-transform: uppercase;
+                margin-bottom: 0.5rem;
+            }
+            input,
+            select {
+                margin-bottom: 3rem;
+                border: none;
+                outline: none;
+                height: 40px;
+                border-radius: 0.3rem;
+                width: 100%;
+                padding: 0 1rem;
+            }
+            input:not([type="checkbox"]) {
+                color: #909090;
+                box-shadow: inset 1px 1px 0px #000a;
+                background-color: rgba(0, 0, 0, 0.25);
+            }
+
+            select {
+                background-color: rgba(59, 63, 72, 0.5);
+                color: #e4e4e4;
+                font-size: 1.6rem;
+
+                &:hover {
+                    box-shadow: 6px 8px 5px rgb(0 0 0 / 10%);
+                }
+                option {
+                    background-color: rgba(59, 63, 72, 0.5);
+                }
+            }
+
+            textarea {
+                padding: 1rem;
+                font-size: 1.4rem;
+                font-family: Arial, Helvetica, sans-serif;
+                width: 100%;
+                color: #909090;
+                box-shadow: inset 1px 1px 0px #000a;
+                background-color: rgba(0, 0, 0, 0.25);
+                outline: none;
+                resize: none;
+                border: none;
+                margin-bottom: 3rem;
+            }
+
+            .os-support {
+                margin-bottom: 3rem;
+                div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 200px;
+                }
+                label {
+                    display: inline;
+                    margin-bottom: 0;
+                }
+                input {
+                    width: fit-content;
+                    margin-bottom: 0;
+                    width: 20px;
+                }
+            }
+            .button-container {
+                padding: 2rem 0;
+                text-align: right;
+                button {
+                    cursor: pointer;
+                    text-decoration: none;
+                    padding: 1rem 8rem;
+                    color: white;
+                    background-color: #909090;
+                    font-size: 1.3rem;
+                    border: none;
+                    border-radius: 0.3rem;
+
+                    &:hover {
+                        filter: brightness(120%);
+                    }
+
+                    &.save {
+                        background: linear-gradient(
+                            to right,
+                            #47bfff 0%,
+                            #1a44c2 60%
+                        );
+                        background-size: 330% 100%;
+                        background-position: 25%;
+                        margin-left: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

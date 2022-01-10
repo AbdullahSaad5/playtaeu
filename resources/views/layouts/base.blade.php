@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="loading">
+    <div class="loading show">
         <img src="{{ asset('images/loading.svg') }}" alt="">
     </div>
     <x-navbar />
@@ -24,6 +24,18 @@
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @yield('scripts')
+    <script>
+        $(window).on('load', function() {
+            $('.loading').removeClass('show');
+        })
+
+        setTimeout(function() {
+            $('.error').fadeOut('slow');
+        }, 5000);
+        setTimeout(function() {
+            $('.success').fadeOut('slow');
+        }, 5000);
+    </script>
 </body>
 
 </html>

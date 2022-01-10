@@ -1,0 +1,323 @@
+.section.profile {
+  min-height: calc(100vh - 108px);
+  background: linear-gradient(180deg, #262d33 -3.38%, #1d1e20 78.58%);
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+.section.profile .container {
+  width: 1000px;
+}
+.section.profile .container .header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: #2f333b;
+  margin-bottom: 4rem;
+}
+.section.profile .container .header img {
+  width: 65px;
+  height: 65px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.section.profile .container .header p {
+  font-size: 2.5rem;
+  margin-left: 2rem;
+  color: #969696;
+}
+.section.profile .container .settings-container {
+  display: flex;
+  gap: 3rem;
+}
+.section.profile .container .settings-container .navigation {
+  flex: 1;
+  padding: 0 1rem;
+}
+.section.profile .container .settings-container .navigation ul {
+  list-style: none;
+}
+.section.profile .container .settings-container .navigation ul li {
+  cursor: pointer;
+  padding: 1rem;
+  font-size: 14px;
+  border-radius: 0.3rem;
+  position: relative;
+  background-color: transparent;
+  background: linear-gradient(to left, transparent 50%, #3d4450 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.3s ease;
+}
+.section.profile .container .settings-container .navigation ul li:not(:first-child) {
+  margin-top: 1rem;
+}
+.section.profile .container .settings-container .navigation ul li.active {
+  background-color: #3d4450;
+}
+.section.profile .container .settings-container .navigation ul li:hover {
+  background-position: left bottom;
+}
+.section.profile .container .settings-container .form-container {
+  flex: 4;
+}
+.section.profile .container .settings-container .form-container .error {
+  font-size: 1.7rem;
+  color: white;
+  padding: 1rem 2rem;
+  background-color: #1d1f24;
+  border: 1px solid #b44040;
+  margin-bottom: 3rem;
+}
+.section.profile .container .settings-container .form-container .success {
+  font-size: 1.7rem;
+  color: white;
+  padding: 1rem 2rem;
+  background-color: #1d1f24;
+  border: 1px solid #44b440;
+  margin-bottom: 3rem;
+}
+.section.profile .container .settings-container .form-container .hidden {
+  display: none;
+}
+.section.profile .container .settings-container .form-container .profile-form h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.section.profile .container .settings-container .form-container .profile-form p {
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: #969696;
+}
+.section.profile .container .settings-container .form-container .profile-form form {
+  padding: 2rem;
+}
+.section.profile .container .settings-container .form-container .profile-form form h1 {
+  font-size: 1.6rem;
+  color: #e4e4e4;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 1rem;
+  border-bottom: solid rgba(228, 228, 228, 0.1);
+  position: relative;
+  left: -2rem;
+  width: calc(100% + 2rem);
+  margin-bottom: 3rem;
+}
+.section.profile .container .settings-container .form-container .profile-form form label {
+  display: block;
+  font-size: 13px;
+  color: #969696;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.section.profile .container .settings-container .form-container .profile-form form input,
+.section.profile .container .settings-container .form-container .profile-form form select {
+  margin-bottom: 3rem;
+  border: none;
+  outline: none;
+  height: 40px;
+  border-radius: 0.3rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+.section.profile .container .settings-container .form-container .profile-form form input {
+  color: #909090;
+  box-shadow: inset 1px 1px 0px #000a;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.section.profile .container .settings-container .form-container .profile-form form select {
+  cursor: pointer;
+  background-color: rgba(59, 63, 72, 0.5);
+  color: #e4e4e4;
+  font-size: 1.6rem;
+}
+.section.profile .container .settings-container .form-container .profile-form form select:hover {
+  box-shadow: 6px 8px 5px rgba(0, 0, 0, 0.1);
+}
+.section.profile .container .settings-container .form-container .profile-form form select option {
+  background-color: rgba(59, 63, 72, 0.5);
+}
+.section.profile .container .settings-container .form-container .profile-form form textarea {
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  color: #909090;
+  box-shadow: inset 1px 1px 0px #000a;
+  background-color: rgba(0, 0, 0, 0.25);
+  outline: none;
+  resize: none;
+  border: none;
+}
+.section.profile .container .settings-container .form-container .profile-form form .button-container {
+  padding: 2rem 0;
+  text-align: right;
+}
+.section.profile .container .settings-container .form-container .profile-form form .button-container button {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 1rem 8rem;
+  color: white;
+  background-color: #909090;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 0.3rem;
+}
+.section.profile .container .settings-container .form-container .profile-form form .button-container button:hover {
+  filter: brightness(120%);
+}
+.section.profile .container .settings-container .form-container .profile-form form .button-container button.save {
+  background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
+  background-size: 330% 100%;
+  background-position: 25%;
+  margin-left: 1rem;
+}
+.section.profile .container .settings-container .form-container .avatar-form h1 {
+  font-size: 1.6rem;
+  color: #e4e4e4;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 1rem;
+  border-bottom: solid rgba(228, 228, 228, 0.1);
+  position: relative;
+  left: -2rem;
+  width: calc(100% + 2rem);
+  margin-bottom: 3rem;
+}
+.section.profile .container .settings-container .form-container .avatar-form p {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  color: #969696;
+}
+.section.profile .container .settings-container .form-container .avatar-form label {
+  display: block;
+  font-size: 13px;
+  color: #969696;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.section.profile .container .settings-container .form-container .avatar-form input {
+  color: #909090;
+  box-shadow: inset 1px 1px 0px #000a;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-bottom: 3rem;
+  border: none;
+  outline: none;
+  height: 40px;
+  border-radius: 0.3rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+.section.profile .container .settings-container .form-container .avatar-form .avatars {
+  margin-bottom: 8rem;
+  display: flex;
+  align-items: flex-end;
+}
+.section.profile .container .settings-container .form-container .avatar-form .avatars .avatar:not(:first-child) {
+  margin-left: 1.5rem;
+}
+.section.profile .container .settings-container .form-container .avatar-form .avatars .avatar:first-child {
+  width: 184px;
+  height: 184px;
+}
+.section.profile .container .settings-container .form-container .avatar-form .avatars .avatar:nth-child(2) {
+  width: 64px;
+  height: 64px;
+}
+.section.profile .container .settings-container .form-container .avatar-form .avatars .avatar:last-child {
+  width: 32px;
+  height: 32px;
+}
+.section.profile .container .settings-container .form-container .avatar-form .avatars .avatar img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.section.profile .container .settings-container .form-container .avatar-form .avatars .avatar p {
+  font-size: 1.1rem;
+  color: #969696;
+  margin-top: 0.3rem;
+}
+.section.profile .container .settings-container .form-container .avatar-form .button-container {
+  padding: 2rem 0;
+  text-align: right;
+}
+.section.profile .container .settings-container .form-container .avatar-form .button-container button {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 1rem 8rem;
+  color: white;
+  background-color: #909090;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 0.3rem;
+}
+.section.profile .container .settings-container .form-container .avatar-form .button-container button:hover {
+  filter: brightness(120%);
+}
+.section.profile .container .settings-container .form-container .avatar-form .button-container button.save {
+  background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
+  background-size: 330% 100%;
+  background-position: 25%;
+  margin-left: 1rem;
+}
+.section.profile .container .settings-container .form-container .password-form h1 {
+  font-size: 1.6rem;
+  color: #e4e4e4;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 1rem;
+  border-bottom: solid rgba(228, 228, 228, 0.1);
+  position: relative;
+  left: -2rem;
+  width: calc(100% + 2rem);
+  margin-bottom: 3rem;
+}
+.section.profile .container .settings-container .form-container .password-form label {
+  display: block;
+  font-size: 13px;
+  color: #969696;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.section.profile .container .settings-container .form-container .password-form input {
+  color: #909090;
+  box-shadow: inset 1px 1px 0px #000a;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-bottom: 3rem;
+  border: none;
+  outline: none;
+  height: 40px;
+  border-radius: 0.3rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+.section.profile .container .settings-container .form-container .password-form .button-container {
+  padding: 2rem 0;
+  text-align: right;
+}
+.section.profile .container .settings-container .form-container .password-form .button-container button {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 1rem 8rem;
+  color: white;
+  background-color: #909090;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 0.3rem;
+}
+.section.profile .container .settings-container .form-container .password-form .button-container button:hover {
+  filter: brightness(120%);
+}
+.section.profile .container .settings-container .form-container .password-form .button-container button.save {
+  background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
+  background-size: 330% 100%;
+  background-position: 25%;
+  margin-left: 1rem;
+}

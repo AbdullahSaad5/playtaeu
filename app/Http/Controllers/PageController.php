@@ -65,6 +65,15 @@ class PageController extends Controller
         return redirect('/login');
     }
 
+    public function editProfile()
+    {
+        if (Auth::check()) {
+            return view('pages.profile');
+        } else {
+            return redirect('/login');
+        }
+    }
+
     public function admin()
     {
         if (Auth::check()) {
@@ -112,7 +121,7 @@ class PageController extends Controller
     public function chooseCard()
     {
         $username = Auth::user()->username;
-        $data = DB::select('SELECT * FROM payment_card WHERE username = ?', [$username]);
+        $data = DB::select('SELECT payment_card.card_id, payment_card.payment_method, payment_card.card_number, payment_card.first_name, payment_card.last_name, payment_card.expiration_date FROM payment_card WHERE username = ?', [$username]);
         if (count($data) == 0) {
             return redirect('/addPaymentCard/user=' . $username);
         }
@@ -128,5 +137,30 @@ class PageController extends Controller
     {
         $data = DB::select('SELECT * FROM payment_card WHERE card_id = ?', [$card_id])[0];
         return view('pages.add-payment-card', ['data' => $data]);
+    }
+
+    public function viewAddGame()
+    {
+        if (Auth::check()) {
+            if (Auth::user()->user_type == 'admin') {
+                return view('pages.add-game');
+            } else {
+                return redirect('/homepage');
+            }
+        } else {
+            return redirect('/login');
+        }
+    }
+
+
+    // Testings
+    public function viewReviews()
+    {
+        if (Auth::check()) {
+            // $data = DB::select('SELECT * FROM review');
+            return view('pages.review');
+        } else {
+            return redirect('/homepage');
+        }
     }
 }

@@ -24,12 +24,14 @@
             padding: 1rem 2rem;
             background-color: #1d1f24;
             border: 1px solid #b44040;
-
-            .fas .fa-exclamation-circle {
-                margin-right: 0.5rem;
-            }
         }
-
+        .success {
+            font-size: 1.7rem;
+            color: white;
+            padding: 1rem 2rem;
+            background-color: #1d1f24;
+            border: 1px solid #44b440;
+        }
         form {
             width: 280px;
             .form-section {

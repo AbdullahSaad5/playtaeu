@@ -25,6 +25,8 @@
   display: block;
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   -webkit-animation: showElement 0.6s ease;
           animation: showElement 0.6s ease;
 }

@@ -7,7 +7,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .gamepage .main {
   max-width: 950px;
@@ -171,4 +172,93 @@
 }
 .gamepage .buy-section .offer .button-container a.get-button:hover {
   filter: brightness(120%);
+}
+
+.review-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1b2838;
+}
+.review-section .container {
+  width: 1000px;
+}
+.review-section .container .reviews {
+  width: 100%;
+  margin-top: 5rem;
+}
+.review-section .container .reviews p.heading {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 1rem;
+  letter-spacing: 3px;
+}
+.review-section .container .reviews .user-review {
+  display: flex;
+  color: #c1dbf4;
+  background-color: #16202d;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.review-section .container .reviews .user-review .user-segment {
+  display: flex;
+  padding-right: 8rem;
+}
+.review-section .container .reviews .user-review .user-segment img {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #c1dbf4;
+}
+.review-section .container .reviews .user-review .user-segment p.username {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+.review-section .container .reviews .user-review .review-segment {
+  flex: 1;
+}
+.review-section .container .reviews .user-review .review-segment .opinion {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 1.7rem;
+}
+.review-section .container .reviews .user-review .review-segment .opinion p {
+  margin-left: 1rem;
+}
+.review-section .container .reviews .user-review .review-segment p.date {
+  font-size: 1rem;
+  color: #8091a2;
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+.review-section .container .reviews .user-review .review-segment p.review {
+  font-size: 1.3rem;
+  color: #acb2b8;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(172, 178, 184, 0.2);
+}
+.review-section .container .reviews .user-review .review-segment .reactions p {
+  font-size: 1.2rem;
+  color: #8091a2;
+  padding: 1rem 0;
+}
+.review-section .container .reviews .user-review .review-segment .reactions p:last-child {
+  padding-bottom: 0;
+}
+.review-section .container .reviews .user-review .review-segment .reactions button {
+  cursor: pointer;
+  background-color: #212c3d;
+  outline: none;
+  border: none;
+  color: #66c0f4;
+  padding: 0.2rem 0.4rem;
+}
+.review-section .container .reviews .user-review .review-segment .reactions button:hover {
+  filter: brightness(140%);
+}
+.review-section .container .reviews .user-review .review-segment .reactions button i {
+  transform: rotateY(180deg);
+  margin-right: 1rem;
 }

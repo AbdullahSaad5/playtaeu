@@ -1,0 +1,76 @@
+.user-review {
+    display: flex;
+    color: #c1dbf4;
+    background-color: #16202d;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    .user-segment {
+        display: flex;
+        padding-right: 8rem;
+        img {
+            width: 34px;
+            height: 34px;
+            border: 1px solid #c1dbf4;
+        }
+
+        p.username {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+    }
+    .review-segment {
+        flex: 1;
+
+        .opinion {
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.2);
+            font-size: 1.7rem;
+            p {
+                margin-left: 1rem;
+            }
+        }
+
+        p.date {
+            font-size: 1rem;
+            color: #8091a2;
+            margin: 1rem 0;
+            text-transform: uppercase;
+        }
+        p.review {
+            font-size: 1.3rem;
+            color: #acb2b8;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(172, 178, 184, 0.2);
+        }
+
+        .reactions {
+            p {
+                font-size: 1.2rem;
+                color: #8091a2;
+                padding: 1rem 0;
+
+                &:last-child {
+                    padding-bottom: 0;
+                }
+            }
+            button {
+                cursor: pointer;
+                background-color: rgb(33, 44, 61);
+                outline: none;
+                border: none;
+                color: #66c0f4;
+                padding: 0.2rem 0.4rem;
+
+                &:hover {
+                    filter: brightness(140%);
+                }
+
+                i {
+                    transform: rotateY(180deg);
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+}

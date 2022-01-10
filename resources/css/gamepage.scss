@@ -8,7 +8,8 @@
     background-repeat: no-repeat;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     .main {
         max-width: 950px;
 
@@ -182,6 +183,30 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.review-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1b2838;
+    .container {
+        width: 1000px;
+        .reviews {
+            width: 100%;
+            margin-top: 5rem;
+
+            p.heading {
+                font-size: 2rem;
+                text-transform: uppercase;
+                color: white;
+                margin-bottom: 1rem;
+                letter-spacing: 3px;
+            }
+            @import "userReview";
         }
     }
 }

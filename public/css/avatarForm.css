@@ -1,0 +1,91 @@
+.avatar-form h1 {
+  font-size: 1.6rem;
+  color: #e4e4e4;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 1rem;
+  border-bottom: solid rgba(228, 228, 228, 0.1);
+  position: relative;
+  left: -2rem;
+  width: calc(100% + 2rem);
+  margin-bottom: 3rem;
+}
+.avatar-form p {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  color: #969696;
+}
+.avatar-form label {
+  display: block;
+  font-size: 13px;
+  color: #969696;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.avatar-form input {
+  color: #909090;
+  box-shadow: inset 1px 1px 0px #000a;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-bottom: 3rem;
+  border: none;
+  outline: none;
+  height: 40px;
+  border-radius: 0.3rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+.avatar-form .avatars {
+  margin-bottom: 8rem;
+  display: flex;
+  align-items: flex-end;
+}
+.avatar-form .avatars .avatar:not(:first-child) {
+  margin-left: 1.5rem;
+}
+.avatar-form .avatars .avatar:first-child {
+  width: 184px;
+  height: 184px;
+}
+.avatar-form .avatars .avatar:nth-child(2) {
+  width: 64px;
+  height: 64px;
+}
+.avatar-form .avatars .avatar:last-child {
+  width: 32px;
+  height: 32px;
+}
+.avatar-form .avatars .avatar img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.avatar-form .avatars .avatar p {
+  font-size: 1.1rem;
+  color: #969696;
+  margin-top: 0.3rem;
+}
+.avatar-form .button-container {
+  padding: 2rem 0;
+  text-align: right;
+}
+.avatar-form .button-container button {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 1rem 8rem;
+  color: white;
+  background-color: #909090;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 0.3rem;
+}
+.avatar-form .button-container button:hover {
+  filter: brightness(120%);
+}
+.avatar-form .button-container button.save {
+  background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
+  background-size: 330% 100%;
+  background-position: 25%;
+  margin-left: 1rem;
+}

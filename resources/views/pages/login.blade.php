@@ -15,6 +15,12 @@
                     {{ session()->get('error') }}
                 </p>
             @endif
+            {{-- If there is a success message --}}
+            @if (session('success'))
+                <p class="success">
+                    {{ session()->get('success') }}
+                </p>
+            @endif
 
             <form action="/login" method="POST">
                 @csrf

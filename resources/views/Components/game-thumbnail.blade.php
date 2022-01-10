@@ -62,10 +62,14 @@
                 <a class="get-button" href="">Owned</a>
 
             @else
-                @if ($price == 0)
-                    <a class="get-button" href="/add-to-cart/id={{ $gameID }}">Get Now</a>
+                @if (Auth::user()->user_type == 'admin')
+                    <a class="get-button" href="/edit-game/id={{ $gameID }}/edit">Edit Details</a>
                 @else
-                    <a class="get-button" href="/add-to-cart/id={{ $gameID }}">Add to Cart</a>
+                    @if ($price == 0)
+                        <a class="get-button" href="/add-to-cart/id={{ $gameID }}">Get Now</a>
+                    @else
+                        <a class="get-button" href="/add-to-cart/id={{ $gameID }}">Add to Cart</a>
+                    @endif
                 @endif
             @endif
 

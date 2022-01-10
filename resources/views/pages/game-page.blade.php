@@ -96,29 +96,53 @@
                             @endif
                         </span>
                     </h2>
-                    <p>Get {{ $data->game_title }} Today for {{ $data->game_price ? '$' . $data->game_price : 'Free' }}.
+                    <p>Get {{ $data->game_title }} Today for
+                        {{ $data->game_price ? '$' . $data->game_price : 'Free' }}.
                         Sieze the chance.</p>
                     <div class="button-container">
-                        @php
-                            $cart = DB::select('SELECT cart.game_id FROM cart WHERE cart.username = ? AND cart.game_id = ?', [Auth::user()->username, $data->game_id]);
-                            $own = DB::select('SELECT owns.game_id FROM owns WHERE owns.username = ? AND owns.game_id = ?', [Auth::user()->username, $data->game_id]);
-                        @endphp
-                        @if (count($cart) > 0)
-                            <a class="get-button" href="/cart/">Game In Cart</a>
 
-                        @elseif (count($own) > 0)
-                            <a class="get-button" href="">Owned</a>
-                        @else
-                            @if ($data->game_price == 0)
-                                <p class="price">Free</p>
-                                <a class="get-button" href="/add-to-cart/id={{ $data->game_id }}">Get Now</button>
+                        @if (Auth::user()->user_type == 'admin')
+                            <p class="price">{{ $data->game_price ? '$' . $data->game_price : 'Free' }}</p>
+                            <a class="get-button" href="/edit-game/id={{ $data->game_id }}">Edit Details</button>
+                            @else
+                                @php
+                                    $cart = DB::select('SELECT cart.game_id FROM cart WHERE cart.username = ? AND cart.game_id = ?', [Auth::user()->username, $data->game_id]);
+                                    $own = DB::select('SELECT owns.game_id FROM owns WHERE owns.username = ? AND owns.game_id = ?', [Auth::user()->username, $data->game_id]);
+                                @endphp
+                                @if (count($cart) > 0)
+                                    <a class="get-button" href="/cart/">Game In Cart</a>
+
+                                @elseif (count($own) > 0)
+                                    <a class="get-button" href="">Owned</a>
                                 @else
-                                    <p class="price">${{ $data->game_price }}</p>
-                                    <a class="get-button" href="/add-to-cart/id={{ $data->game_id }}">Buy Now</a>
-                            @endif
+                                    @if ($data->game_price == 0)
+                                        <p class="price">Free</p>
+                                        <a class="get-button" href="/add-to-cart/id={{ $data->game_id }}">Get
+                                            Now</button>
+                                        @else
+                                            <p class="price">${{ $data->game_price }}</p>
+                                            <a class="get-button" href="/add-to-cart/id={{ $data->game_id }}">Buy
+                                                Now</a>
+                                    @endif
+                                @endif
                         @endif
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section class="section review-section">
+        <div class="container">
+            <div class="reviews">
+                <p class="heading">Game Reviews</p>
+                <x-user-review username="{{ Auth::user()->username }}" userAvatar="{{ Auth::user()->user_avatar }}"
+                    opinion="Recommended" message="Hello World" date="12-10-2020" likes="120" />
+                <x-user-review username="{{ Auth::user()->username }}" userAvatar="{{ Auth::user()->user_avatar }}"
+                    opinion="Recommended" message="" date="12-10-2020" likes="120" />
+                <x-user-review username="{{ Auth::user()->username }}" userAvatar="{{ Auth::user()->user_avatar }}"
+                    opinion="Recommended" message="Hello World" date="12-10-2020" likes="120" />
+                <x-user-review username="{{ Auth::user()->username }}" userAvatar="{{ Auth::user()->user_avatar }}"
+                    opinion="Recommended" message="Hello World" date="12-10-2020" likes="120" />
             </div>
         </div>
     </section>
