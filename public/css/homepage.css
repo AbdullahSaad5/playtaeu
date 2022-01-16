@@ -7,10 +7,9 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  height: 400px;
 }
 .section .highlights .game-thumbnail {
-  height: inherit;
+  height: 400px;
   display: block;
   aspect-ratio: 0.835;
   box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.75);

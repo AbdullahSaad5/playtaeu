@@ -21,9 +21,19 @@
   width: 120px;
   margin-right: 1rem;
 }
+@media screen and (max-width: 550px) {
+  .cart-item .group1 .cart-image {
+    width: 100px;
+  }
+}
 .cart-item .group1 .cart-image img {
   width: 100%;
   display: block;
+}
+@media screen and (max-width: 550px) {
+  .cart-item .group1 .item-name p {
+    font-size: 1.1rem;
+  }
 }
 .cart-item .group2 .supported-os {
   margin-right: 2rem;
@@ -31,8 +41,18 @@
 .cart-item .group2 .supported-os p {
   font-size: 1.8rem;
 }
+@media screen and (max-width: 550px) {
+  .cart-item .group2 .supported-os p {
+    font-size: 1.5rem;
+  }
+}
 .cart-item .group2 .supported-os p i:not(:first-child) {
   margin-left: 0.6rem;
+}
+@media screen and (max-width: 550px) {
+  .cart-item .group2 .supported-os p i:not(:first-child) {
+    margin-left: 0.3rem;
+  }
 }
 .cart-item .group2 .actions {
   height: 100%;

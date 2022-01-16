@@ -1,5 +1,8 @@
 <nav>
     <ul>
+        <li class="hamburger">
+            <i class="fas fa-bars"></i>
+        </li>
         <li class="logo">
             <a href="/homepage">
                 <img src="{{ asset('logo.svg') }}" alt=""></a>
@@ -13,7 +16,6 @@
             <li><a href="">Community</a></li>
         @endif
         <li><a href="">About</a></li>
-        <li><a href="">Support</a></li>
         @if (Auth::check())
             <li><a href="/edit-profile">{{ Auth::user()->username }}</a></li>
             <li><a href="/logout">Logout</a></li>

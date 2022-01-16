@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   color: white;
+  padding: 0 2rem;
 }
 .section.shopping-cart .container {
   width: 700px;
@@ -13,6 +14,11 @@
   font-weight: 300;
   text-transform: uppercase;
   margin: 3rem 0;
+}
+@media screen and (max-width: 700px) {
+  .section.shopping-cart .container h1 {
+    font-size: 2.5rem;
+  }
 }
 .section.shopping-cart .container .items-container {
   width: 100%;
@@ -40,9 +46,19 @@
   width: 120px;
   margin-right: 1rem;
 }
+@media screen and (max-width: 550px) {
+  .section.shopping-cart .container .items-container .cart-item .group1 .cart-image {
+    width: 100px;
+  }
+}
 .section.shopping-cart .container .items-container .cart-item .group1 .cart-image img {
   width: 100%;
   display: block;
+}
+@media screen and (max-width: 550px) {
+  .section.shopping-cart .container .items-container .cart-item .group1 .item-name p {
+    font-size: 1.1rem;
+  }
 }
 .section.shopping-cart .container .items-container .cart-item .group2 .supported-os {
   margin-right: 2rem;
@@ -50,8 +66,18 @@
 .section.shopping-cart .container .items-container .cart-item .group2 .supported-os p {
   font-size: 1.8rem;
 }
+@media screen and (max-width: 550px) {
+  .section.shopping-cart .container .items-container .cart-item .group2 .supported-os p {
+    font-size: 1.5rem;
+  }
+}
 .section.shopping-cart .container .items-container .cart-item .group2 .supported-os p i:not(:first-child) {
   margin-left: 0.6rem;
+}
+@media screen and (max-width: 550px) {
+  .section.shopping-cart .container .items-container .cart-item .group2 .supported-os p i:not(:first-child) {
+    margin-left: 0.3rem;
+  }
 }
 .section.shopping-cart .container .items-container .cart-item .group2 .actions {
   height: 100%;

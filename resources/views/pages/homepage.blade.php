@@ -10,7 +10,8 @@
             @foreach ($data as $obj)
                 <x-game-thumbnail :gameID="$obj->game_id" :image="$obj->game_thumbnail_image"
                     :video="$obj->game_thumbnail_video" :title="$obj->game_title" :price="$obj->game_price"
-                    :developer="$obj->developers" :publisher="$obj->publishers" reviewCount="247,064" />
+                    :developer="$obj->developers" :publisher="$obj->publishers"
+                    :reviewCount="$obj->rating.'% ('.$obj->reviewCount .' reviews)'" />
 
             @endforeach
         </div>

@@ -12,6 +12,7 @@
     align-items: center;
     .main {
         max-width: 950px;
+        width: 100%;
 
         h1 {
             font-size: 2.5rem;
@@ -46,12 +47,12 @@
                         display: none;
                     }
                 }
-
                 .thumbnails {
                     flex: 1;
                     margin-top: 0.2rem;
                     display: flex;
                     align-items: center;
+                    overflow: hidden;
                     .image-container {
                         cursor: pointer;
                         height: 68px;
@@ -178,6 +179,14 @@
                     bottom: 0px;
                     border-radius: 0.3rem;
 
+                    &.delete {
+                        background: linear-gradient(
+                            to right,
+                            #ff0000 5%,
+                            #ff0000 95%
+                        );
+                    }
+
                     &:hover {
                         filter: brightness(120%);
                     }
@@ -193,8 +202,10 @@
     flex-direction: column;
     align-items: center;
     background-color: #1b2838;
+    padding: 0 5rem;
     .container {
-        width: 1000px;
+        max-width: 1000px;
+        width: 100%;
         .reviews {
             width: 100%;
             margin-top: 5rem;
@@ -208,5 +219,127 @@
             }
             @import "userReview";
         }
+    }
+}
+
+.review-form-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.hidden {
+        display: none;
+    }
+
+    @import "writeReview";
+}
+
+@media screen and (max-width: 1000px) {
+    .gamepage {
+        .main {
+            padding: 0 5rem;
+            .display-section {
+                width: 100%;
+                height: auto;
+                flex-direction: column-reverse;
+                .showcase {
+                    flex: none;
+                    width: 100%;
+                }
+
+                .side {
+                    width: 100%;
+                    height: fit-content;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 1rem;
+                    flex: none;
+
+                    img {
+                        object-fit: contain;
+                        width: 50%;
+                        aspect-ratio: 16/9;
+                        margin-top: -1rem;
+                    }
+
+                    .info {
+                        margin: 0;
+                        padding: 0.5rem 1rem 0.5rem 0.5rem;
+                        div {
+                            p,
+                            span {
+                                font-size: 1.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .gamepage {
+        .main {
+            .display-section {
+                .side {
+                    flex-direction: column;
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .review-section .container .reviews .user-review {
+        flex-direction: column;
+        .user-segment {
+            margin-bottom: 2rem;
+            img {
+                height: 45px;
+                width: 45px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .gamepage {
+        .main {
+            padding: 0 2rem;
+        }
+        .buy-section {
+            .offer {
+                h2 {
+                    font-size: 1.6rem;
+                }
+                p {
+                    font-size: 1.1rem;
+                }
+
+                .button-container {
+                    bottom: -2.5rem;
+                    p,
+                    a {
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+    }
+    .review-section {
+        padding: 0 2rem;
     }
 }

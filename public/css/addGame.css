@@ -4,6 +4,7 @@
   background: linear-gradient(180deg, #262d33 -3.38%, #1d1e20 78.58%);
   display: flex;
   justify-content: center;
+  padding: 0 2rem;
 }
 .section.add-game .form-container {
   width: 1000px;
@@ -36,6 +37,12 @@
   margin-bottom: 3rem;
   position: relative;
 }
+@media screen and (max-width: 800px) {
+  .section.add-game .form-container form h1 {
+    left: 0;
+    width: 100%;
+  }
+}
 .section.add-game .form-container form h1 a {
   font-size: 1rem;
   color: #969696;
@@ -56,7 +63,7 @@
   margin-bottom: 3rem;
   border: none;
   outline: none;
-  height: 40px;
+  min-height: 40px;
   border-radius: 0.3rem;
   width: 100%;
   padding: 0 1rem;
@@ -89,6 +96,51 @@
   resize: none;
   border: none;
   margin-bottom: 3rem;
+}
+.section.add-game .form-container form .publisher-input-container,
+.section.add-game .form-container form .developer-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 1px 1px 0px #000a;
+  padding: 0 1rem;
+  border-radius: 0.3rem;
+}
+.section.add-game .form-container form .publisher-input-container input,
+.section.add-game .form-container form .developer-input-container input {
+  margin-bottom: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+.section.add-game .form-container form .publisher-input-container div.tag,
+.section.add-game .form-container form .developer-input-container div.tag {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+}
+.section.add-game .form-container form .publisher-input-container div.tag:not(:last-child),
+.section.add-game .form-container form .developer-input-container div.tag:not(:last-child) {
+  margin-right: 0.5rem;
+}
+.section.add-game .form-container form .publisher-input-container div.tag p.text,
+.section.add-game .form-container form .developer-input-container div.tag p.text {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.section.add-game .form-container form .publisher-input-container div.tag p.cross,
+.section.add-game .form-container form .developer-input-container div.tag p.cross {
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+}
+.section.add-game .form-container form .publisher-input-container div.tag p.cross:hover,
+.section.add-game .form-container form .developer-input-container div.tag p.cross:hover {
+  color: #e4e4e4;
 }
 .section.add-game .form-container form .os-support {
   margin-bottom: 3rem;
@@ -123,6 +175,7 @@
   font-size: 1.3rem;
   border: none;
   border-radius: 0.3rem;
+  margin-bottom: 1rem;
 }
 .section.add-game .form-container form .button-container button:hover {
   filter: brightness(120%);

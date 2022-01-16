@@ -32,7 +32,7 @@
 }
 .user-review .review-segment p.date {
   font-size: 1rem;
-  color: #8091a2;
+  color: #969696;
   margin: 1rem 0;
   text-transform: uppercase;
 }
@@ -48,20 +48,28 @@
   padding: 1rem 0;
 }
 .user-review .review-segment .reactions p:last-child {
-  padding-bottom: 0;
+  padding: 0;
 }
-.user-review .review-segment .reactions button {
+.user-review .review-segment .reactions a {
+  font-size: 1.2rem;
+  font-family: inherit;
   cursor: pointer;
   background-color: #212c3d;
   outline: none;
   border: none;
   color: #66c0f4;
-  padding: 0.2rem 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
 }
-.user-review .review-segment .reactions button:hover {
+.user-review .review-segment .reactions a.clicked {
+  pointer-events: none;
+  background: #66c0f4;
+  color: white;
+}
+.user-review .review-segment .reactions a:hover {
   filter: brightness(140%);
 }
-.user-review .review-segment .reactions button i {
+.user-review .review-segment .reactions a i {
   transform: rotateY(180deg);
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }

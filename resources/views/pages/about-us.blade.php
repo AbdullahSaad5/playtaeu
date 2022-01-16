@@ -5,9 +5,6 @@
 
 
 @section('content')
-    <section class="section reviews">
-        
-    </section>
 @endsection
 
 

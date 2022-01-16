@@ -8,8 +8,21 @@
   font-weight: 300;
   color: #969696;
 }
+@media screen and (max-width: 800px) {
+  .profile-form p.instructions {
+    margin-bottom: 2rem;
+  }
+}
 .profile-form form {
   padding: 2rem;
+}
+@media screen and (max-width: 800px) {
+  .profile-form form {
+    padding: 0;
+  }
+  .profile-form form p.instructions {
+    margin-bottom: 2rem;
+  }
 }
 .profile-form form h1 {
   font-size: 1.6rem;
@@ -22,6 +35,12 @@
   left: -2rem;
   width: calc(100% + 2rem);
   margin-bottom: 3rem;
+}
+@media screen and (max-width: 800px) {
+  .profile-form form h1 {
+    left: 0;
+    width: 100%;
+  }
 }
 .profile-form form label {
   display: block;
@@ -75,6 +94,7 @@
   text-align: right;
 }
 .profile-form form .button-container button {
+  margin-bottom: 1rem;
   cursor: pointer;
   text-decoration: none;
   padding: 1rem 8rem;

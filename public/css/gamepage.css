@@ -12,6 +12,7 @@
 }
 .gamepage .main {
   max-width: 950px;
+  width: 100%;
 }
 .gamepage .main h1 {
   font-size: 2.5rem;
@@ -49,6 +50,7 @@
   margin-top: 0.2rem;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 .gamepage .main .display-section .showcase .thumbnails .image-container {
   cursor: pointer;
@@ -170,6 +172,9 @@
   bottom: 0px;
   border-radius: 0.3rem;
 }
+.gamepage .buy-section .offer .button-container a.get-button.delete {
+  background: linear-gradient(to right, #ff0000 5%, #ff0000 95%);
+}
 .gamepage .buy-section .offer .button-container a.get-button:hover {
   filter: brightness(120%);
 }
@@ -180,9 +185,11 @@
   flex-direction: column;
   align-items: center;
   background-color: #1b2838;
+  padding: 0 5rem;
 }
 .review-section .container {
-  width: 1000px;
+  max-width: 1000px;
+  width: 100%;
 }
 .review-section .container .reviews {
   width: 100%;
@@ -229,7 +236,7 @@
 }
 .review-section .container .reviews .user-review .review-segment p.date {
   font-size: 1rem;
-  color: #8091a2;
+  color: #969696;
   margin: 1rem 0;
   text-transform: uppercase;
 }
@@ -245,20 +252,249 @@
   padding: 1rem 0;
 }
 .review-section .container .reviews .user-review .review-segment .reactions p:last-child {
-  padding-bottom: 0;
+  padding: 0;
 }
-.review-section .container .reviews .user-review .review-segment .reactions button {
+.review-section .container .reviews .user-review .review-segment .reactions a {
+  font-size: 1.2rem;
+  font-family: inherit;
   cursor: pointer;
   background-color: #212c3d;
   outline: none;
   border: none;
   color: #66c0f4;
-  padding: 0.2rem 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
 }
-.review-section .container .reviews .user-review .review-segment .reactions button:hover {
+.review-section .container .reviews .user-review .review-segment .reactions a.clicked {
+  pointer-events: none;
+  background: #66c0f4;
+  color: white;
+}
+.review-section .container .reviews .user-review .review-segment .reactions a:hover {
   filter: brightness(140%);
 }
-.review-section .container .reviews .user-review .review-segment .reactions button i {
+.review-section .container .reviews .user-review .review-segment .reactions a i {
   transform: rotateY(180deg);
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+}
+
+.review-form-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.review-form-section.hidden {
+  display: none;
+}
+.review-form-section .form-container {
+  width: 700px;
+  color: white;
+  background: linear-gradient(to right bottom, #343840, #25282e);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 2rem;
+  border-top: 1px solid #14a4ff;
+}
+.review-form-section .form-container h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.7rem;
+}
+.review-form-section .form-container h2 {
+  font-size: 2rem;
+  color: #4193f0;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+.review-form-section .form-container p,
+.review-form-section .form-container input,
+.review-form-section .form-container label {
+  font-size: 1.3rem;
+}
+.review-form-section .form-container .opinion-segment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #434953;
+  padding: 1.5rem;
+}
+.review-form-section .form-container .opinion-segment p {
+  font-size: 1.5rem;
+}
+.review-form-section .form-container .opinion-segment .option {
+  display: inline-block;
+}
+.review-form-section .form-container .opinion-segment .option:first-of-type {
+  margin-right: 0.3rem;
+}
+.review-form-section .form-container .opinion-segment .option input {
+  display: none;
+}
+.review-form-section .form-container .opinion-segment .option input:checked + label {
+  color: white;
+  background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
+  background-size: 330% 100%;
+  background-position: 25%;
+}
+.review-form-section .form-container .opinion-segment .option input:checked + label i {
+  font-size: 2.8rem;
+}
+.review-form-section .form-container .opinion-segment .option label {
+  cursor: pointer;
+  display: inline-block;
+  color: #67c1f5;
+  background-color: #4b6173;
+  padding: 0.7rem 2rem;
+  border-radius: 0.3rem;
+}
+.review-form-section .form-container .opinion-segment .option label:hover {
+  background: linear-gradient(to right bottom, #64b7e8, #417a9b);
+  color: white;
+}
+.review-form-section .form-container .opinion-segment .option label span {
+  vertical-align: middle;
+}
+.review-form-section .form-container .opinion-segment .option label i {
+  margin-right: 0.5rem;
+  font-size: 2.5rem;
+  transform: rotateY(180deg);
+}
+.review-form-section .form-container .review-segment p {
+  margin: 3rem 0 1rem 0;
+  color: #969696;
+  line-height: 1.3;
+}
+.review-form-section .form-container .review-segment textarea {
+  resize: none;
+  padding: 0.5rem;
+  font: inherit;
+  font-size: 1.3rem;
+  width: 100%;
+  height: 15rem;
+  background-color: #434953;
+  border: 1px solid black;
+  outline: none;
+  color: white;
+}
+.review-form-section .form-container .button-container {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5rem;
+  gap: 2rem;
+}
+.review-form-section .form-container .button-container button {
+  flex: 1;
+  cursor: pointer;
+  padding: 0.7rem;
+  text-decoration: none;
+  color: white;
+  background-color: #909090;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 0.3rem;
+}
+.review-form-section .form-container .button-container button:hover {
+  filter: brightness(120%);
+}
+.review-form-section .form-container .button-container button.save {
+  background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
+  background-size: 330% 100%;
+  background-position: 25%;
+}
+.review-form-section .form-container .button-container button.cancel {
+  background-color: #3d4450;
+}
+
+@media screen and (max-width: 1000px) {
+  .gamepage .main {
+    padding: 0 5rem;
+  }
+  .gamepage .main .display-section {
+    width: 100%;
+    height: auto;
+    flex-direction: column-reverse;
+  }
+  .gamepage .main .display-section .showcase {
+    flex: none;
+    width: 100%;
+  }
+  .gamepage .main .display-section .side {
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex: none;
+  }
+  .gamepage .main .display-section .side img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    width: 50%;
+    aspect-ratio: 16/9;
+    margin-top: -1rem;
+  }
+  .gamepage .main .display-section .side .info {
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+  }
+  .gamepage .main .display-section .side .info div p,
+.gamepage .main .display-section .side .info div span {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .gamepage .main .display-section .side {
+    flex-direction: column;
+  }
+  .gamepage .main .display-section .side img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .review-section .container .reviews .user-review {
+    flex-direction: column;
+  }
+  .review-section .container .reviews .user-review .user-segment {
+    margin-bottom: 2rem;
+  }
+  .review-section .container .reviews .user-review .user-segment img {
+    height: 45px;
+    width: 45px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .gamepage .main {
+    padding: 0 2rem;
+  }
+  .gamepage .buy-section .offer h2 {
+    font-size: 1.6rem;
+  }
+  .gamepage .buy-section .offer p {
+    font-size: 1.1rem;
+  }
+  .gamepage .buy-section .offer .button-container {
+    bottom: -2.5rem;
+  }
+  .gamepage .buy-section .offer .button-container p,
+.gamepage .buy-section .offer .button-container a {
+    font-size: 1.4rem;
+  }
+
+  .review-section {
+    padding: 0 2rem;
+  }
 }

@@ -27,6 +27,9 @@
                         <li>
                             Security
                         </li>
+                        <li>
+                            Account
+                        </li>
                     </ul>
                 </div>
 
@@ -73,8 +76,14 @@
                     $('.form-container').append(`
                         <x-password-form />
                     `);
+                } else if (index == 3) {
+                    $('.form-container').append(`
+                        <x-account-deletion />
+                    `);
                 }
             });
+
+
         });
     </script>
 @endsection

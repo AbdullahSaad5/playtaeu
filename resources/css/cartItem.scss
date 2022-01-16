@@ -22,9 +22,20 @@
             width: 120px;
             margin-right: 1rem;
 
+            @media screen and (max-width: 550px) {
+                width: 100px;
+            }
+
             img {
                 width: 100%;
                 display: block;
+            }
+        }
+        .item-name {
+            p {
+                @media screen and (max-width: 550px) {
+                    font-size: 1.1rem;
+                }
             }
         }
     }
@@ -35,8 +46,16 @@
             p {
                 font-size: 1.8rem;
 
+                @media screen and (max-width: 550px) {
+                    font-size: 1.5rem;
+                }
+
                 i:not(:first-child) {
                     margin-left: 0.6rem;
+
+                    @media screen and (max-width: 550px) {
+                        margin-left: 0.3rem;
+                    }
                 }
             }
         }

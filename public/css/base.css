@@ -37,6 +37,7 @@ body nav {
   font-size: 1.6rem;
   text-transform: uppercase;
   background-color: #171a21;
+  position: relative;
 }
 body nav ul {
   display: flex;
@@ -53,6 +54,20 @@ body nav ul li.logo {
 body nav ul li.logo img {
   height: 40px;
 }
+body nav ul li.hamburger {
+  display: none;
+  padding-right: 2rem;
+  font-size: 3rem;
+  position: absolute;
+  right: 0;
+  color: white;
+  cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+  body nav ul li.hamburger {
+    display: block;
+  }
+}
 body nav ul li a {
   text-decoration: none;
   color: #b8b6b4;
@@ -63,4 +78,80 @@ body nav ul li a:hover {
 }
 body .main-section {
   min-height: calc(100vh - 108px);
+}
+body .mobile-nav {
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #171a21;
+  z-index: 10;
+  color: white;
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
+  display: none;
+  transform: translateX(-105%);
+  transition: transform 1s ease;
+}
+@media screen and (max-width: 1000px) {
+  body .mobile-nav {
+    display: block;
+  }
+  body .mobile-nav.show {
+    display: block;
+    transform: translateX(0);
+  }
+}
+@media screen and (min-width: 1001px) {
+  body .mobile-nav {
+    transform: translateX(-100%);
+  }
+}
+body .mobile-nav a {
+  color: #b8b6b4;
+  font-size: 2.2rem;
+  text-decoration: none;
+  transition: all 0.1s ease;
+}
+body .mobile-nav a:hover {
+  color: white;
+}
+body .mobile-nav .profile {
+  background: linear-gradient(107deg, #24313f 0%, #171a21 33%);
+  padding: 2rem 12rem 2rem 2rem;
+  box-shadow: inset 0 -4px 8px 0 #000000;
+}
+body .mobile-nav .profile .personal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .mobile-nav .profile .personal img {
+  width: 34px;
+  height: 34px;
+}
+body .mobile-nav .profile .personal p {
+  font-size: 2.2rem;
+  color: #969696;
+  margin-left: 1rem;
+}
+body .mobile-nav .profile .cart {
+  margin-top: 2rem;
+}
+body .mobile-nav .profile .cart a {
+  font-size: 1.8rem;
+  color: #969696;
+}
+body .mobile-nav .links {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+body .mobile-nav .links li {
+  width: 100%;
+  padding: 1.3rem 12rem 1.3rem 1.3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+@media screen and (max-width: 1000px) {
+  body nav li:not(.logo) {
+    display: none;
+  }
 }

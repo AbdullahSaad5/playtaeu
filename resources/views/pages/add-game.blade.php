@@ -41,15 +41,18 @@
                 <h1>Developers</h1>
                 <div class="custom-url">
                     <label for="">Developer Names</label>
-                    <input type="text" id="developers" list="developers-list" name="developer-name">
+                    <div class="developer-input-container">
+                        <input type="text" id="developers" list="developers-list" name="developer-name">
+                    </div>
                     <datalist id="developers-list">
-
                     </datalist>
                 </div>
                 <h1>Publishers </h1>
                 <div class="custom-url">
                     <label for="">Publisher Names</label>
-                    <input type="text" id="publishers" list="publishers-list" name="publisher-name">
+                    <div class="publisher-input-container">
+                        <input type="text" id="publishers" list="publishers-list" name="publisher-name">
+                    </div>
                     <datalist id="publishers-list"></datalist>
                 </div>
                 <h1>Images (URLs Only) </h1>
@@ -104,6 +107,11 @@
 
     <script>
         $(document).ready(function() {
+            $('.submit').click(function(e) {
+                e.preventDefault();
+                // $('form').submit();
+                console.log('clicked');
+            });
 
             // Getting developers ascynchronously
             $('#developers').keyup(function() {
@@ -111,18 +119,29 @@
                     $.ajax({
                         url: '/get-developers/' + $('#developers').val(),
                         complete: function(response) {
+                            $('#developers-list').empty();
                             response = response.responseText;
                             response = JSON.parse(response);
-                            $('#developers-list').empty();
-                            response.forEach(element => {
-                                $('#developers-list').append('<option value="' +
-                                    element.developer_name + '">');
+                            let texts = $('.developer-input-container .tag p.text');
+                            response.map((element, index) => {
+                                // Check if the developer is in texts
+                                let isIn = false;
+                                texts.each(function() {
+                                    if ($(this).text().toUpperCase() == element
+                                        .developer_name.toUpperCase()) {
+                                        isIn = true;
+                                    }
+                                });
+                                if (!isIn) {
+                                    $('#developers-list').append('<option value="' +
+                                        element.developer_name + '">');
+                                }
                             });
+
                         },
                         error: function() {
                             $('#developers-list').empty();
-                            $('#developers-list').append('<option value="' +
-                                element.developer_name + '">');
+                            $('#developers-list').append('<option value="Error!">');
                         }
                     });
                     return false;
@@ -134,21 +153,85 @@
                     $.ajax({
                         url: '/get-publishers/' + $('#publishers').val(),
                         complete: function(response) {
+                            $('#publishers-list').empty();
                             response = response.responseText;
                             response = JSON.parse(response);
-                            $('#publishers-list').empty();
-                            response.forEach(element => {
-                                $('#publishers-list').append('<option value="' +
-                                    element.publisher_name + '">');
+                            let texts = $('.publisher-input-container .tag p.text');
+                            response.map((element, index) => {
+                                // Check if the publisher is in texts
+                                let isIn = false;
+                                texts.each(function() {
+                                    if ($(this).text().toUpperCase() == element
+                                        .publisher_name.toUpperCase()) {
+                                        isIn = true;
+                                    }
+                                });
+                                if (!isIn) {
+                                    $('#publishers-list').append('<option value="' +
+                                        element.publisher_name + '">');
+                                }
                             });
                         },
                         error: function() {
                             $('#publishers-list').empty();
-                            $('#publisher-list').append('<option value="' +
-                                element.publisher_name + '">');
+                            $('#publishers-list').append('<option value="Error!">');
+
                         }
                     });
                     return false;
+                }
+            });
+
+            $("#developers").on('input', function() {
+                let val = this.value;
+                if ($('#developers-list option').filter(function() {
+                        return this.value.toUpperCase() === val.toUpperCase();
+                    }).length) {
+                    //send ajax request
+                    let tag = '<div class="tag"><p class="text">' + val +
+                        '</p><p class="cross"><i class="fas fa-times-circle"></i></p></div>';
+                    $('.developer-input-container input').before(tag);
+                    $(this).val('');
+                    $('developers-list').empty();
+
+                    // If more than 3 tags, disable the input
+                    if ($('.developer-input-container .tag').length == 3) {
+                        $('.developer-input-container input').attr('disabled', true);
+                    }
+                    // Remove tag
+                    $('.cross').bind('click', function() {
+                        $(this).parent().remove();
+                        // If less than 3 tags, enable the input
+                        if ($('.developer-input-container .tag').length < 3) {
+                            $('.developer-input-container input').attr('disabled', false);
+                        }
+                    });
+                }
+            });
+            $("#publishers").on('input', function() {
+                let val = this.value;
+                if ($('#publishers-list option').filter(function() {
+                        return this.value.toUpperCase() === val.toUpperCase();
+                    }).length) {
+                    //send ajax request
+                    let tag = '<div class="tag"><p class="text">' + val +
+                        '</p><p class="cross"><i class="fas fa-times-circle"></i></p></div>';
+                    $('.publisher-input-container input').before(tag);
+                    $(this).val('');
+                    $('#publishers-list').empty();
+
+                    // If more than 3 tags, disable the input
+                    if ($('.publisher-input-container .tag').length == 3) {
+                        $('.publisher-input-container input').attr('disabled', true);
+                    }
+                    // Remove tag
+                    $('.cross').bind('click', function() {
+                        $(this).parent().remove();
+                        // If less than 3 tags, enable the input
+                        if ($('.publisher-input-container .tag').length < 3) {
+                            $('.publisher-input-container input').attr('disabled', false);
+                        }
+                    });
                 }
             });
         });

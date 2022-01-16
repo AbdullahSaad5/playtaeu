@@ -1,6 +1,6 @@
 <div class="profile-form form">
     <h2>About</h2>
-    <p>
+    <p class="instructions">
         Set your profile name and details. Providing additional information like your real name can help
         friends
         find you on the Playtaeu Community.

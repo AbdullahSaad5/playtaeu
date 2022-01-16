@@ -4,14 +4,16 @@
   display: flex;
   justify-content: center;
   color: white;
+  padding: 0 2rem;
 }
 .section.profile .container {
-  width: 1000px;
+  max-width: 1000px;
+  width: 100%;
 }
 .section.profile .container .header {
   display: flex;
   align-items: center;
-  padding: 1.5rem 2rem;
+  padding: 2rem 2.5rem;
   background-color: #2f333b;
   margin-bottom: 4rem;
 }
@@ -24,7 +26,7 @@
 .section.profile .container .header p {
   font-size: 2.5rem;
   margin-left: 2rem;
-  color: #969696;
+  color: white;
 }
 .section.profile .container .settings-container {
   display: flex;
@@ -90,8 +92,21 @@
   font-weight: 300;
   color: #969696;
 }
+@media screen and (max-width: 800px) {
+  .section.profile .container .settings-container .form-container .profile-form p.instructions {
+    margin-bottom: 2rem;
+  }
+}
 .section.profile .container .settings-container .form-container .profile-form form {
   padding: 2rem;
+}
+@media screen and (max-width: 800px) {
+  .section.profile .container .settings-container .form-container .profile-form form {
+    padding: 0;
+  }
+  .section.profile .container .settings-container .form-container .profile-form form p.instructions {
+    margin-bottom: 2rem;
+  }
 }
 .section.profile .container .settings-container .form-container .profile-form form h1 {
   font-size: 1.6rem;
@@ -104,6 +119,12 @@
   left: -2rem;
   width: calc(100% + 2rem);
   margin-bottom: 3rem;
+}
+@media screen and (max-width: 800px) {
+  .section.profile .container .settings-container .form-container .profile-form form h1 {
+    left: 0;
+    width: 100%;
+  }
 }
 .section.profile .container .settings-container .form-container .profile-form form label {
   display: block;
@@ -157,6 +178,7 @@
   text-align: right;
 }
 .section.profile .container .settings-container .form-container .profile-form form .button-container button {
+  margin-bottom: 1rem;
   cursor: pointer;
   text-decoration: none;
   padding: 1rem 8rem;
@@ -186,6 +208,12 @@
   left: -2rem;
   width: calc(100% + 2rem);
   margin-bottom: 3rem;
+}
+@media screen and (max-width: 800px) {
+  .section.profile .container .settings-container .form-container .avatar-form h1 {
+    left: 0;
+    width: 100%;
+  }
 }
 .section.profile .container .settings-container .form-container .avatar-form p {
   font-size: 1.5rem;
@@ -228,9 +256,19 @@
   width: 64px;
   height: 64px;
 }
+@media screen and (max-width: 500px) {
+  .section.profile .container .settings-container .form-container .avatar-form .avatars .avatar:nth-child(2) {
+    display: none;
+  }
+}
 .section.profile .container .settings-container .form-container .avatar-form .avatars .avatar:last-child {
   width: 32px;
   height: 32px;
+}
+@media screen and (max-width: 500px) {
+  .section.profile .container .settings-container .form-container .avatar-form .avatars .avatar:last-child {
+    display: none;
+  }
 }
 .section.profile .container .settings-container .form-container .avatar-form .avatars .avatar img {
   width: 100%;
@@ -256,6 +294,7 @@
   font-size: 1.3rem;
   border: none;
   border-radius: 0.3rem;
+  margin-bottom: 1rem;
 }
 .section.profile .container .settings-container .form-container .avatar-form .button-container button:hover {
   filter: brightness(120%);
@@ -277,6 +316,12 @@
   left: -2rem;
   width: calc(100% + 2rem);
   margin-bottom: 3rem;
+}
+@media screen and (max-width: 800px) {
+  .section.profile .container .settings-container .form-container .password-form h1 {
+    left: 0;
+    width: 100%;
+  }
 }
 .section.profile .container .settings-container .form-container .password-form label {
   display: block;
@@ -311,12 +356,75 @@
   font-size: 1.3rem;
   border: none;
   border-radius: 0.3rem;
+  margin-bottom: 1rem;
 }
 .section.profile .container .settings-container .form-container .password-form .button-container button:hover {
   filter: brightness(120%);
 }
 .section.profile .container .settings-container .form-container .password-form .button-container button.save {
   background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
+  background-size: 330% 100%;
+  background-position: 25%;
+  margin-left: 1rem;
+}
+.section.profile .container .settings-container .form-container .account-deletion h1 {
+  font-size: 1.6rem;
+  color: #e4e4e4;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 1rem;
+  border-bottom: solid rgba(228, 228, 228, 0.1);
+  position: relative;
+  left: -2rem;
+  width: calc(100% + 2rem);
+  margin-bottom: 3rem;
+}
+@media screen and (max-width: 800px) {
+  .section.profile .container .settings-container .form-container .account-deletion h1 {
+    left: 0;
+    width: 100%;
+  }
+}
+.section.profile .container .settings-container .form-container .account-deletion label {
+  display: block;
+  font-size: 13px;
+  color: #969696;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.section.profile .container .settings-container .form-container .account-deletion input {
+  color: #909090;
+  box-shadow: inset 1px 1px 0px #000a;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-bottom: 3rem;
+  border: none;
+  outline: none;
+  height: 40px;
+  border-radius: 0.3rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+.section.profile .container .settings-container .form-container .account-deletion .button-container {
+  padding: 2rem 0;
+  text-align: right;
+}
+.section.profile .container .settings-container .form-container .account-deletion .button-container button {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 1rem 8rem;
+  color: white;
+  background-color: #909090;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 0.3rem;
+  margin-bottom: 1rem;
+}
+.section.profile .container .settings-container .form-container .account-deletion .button-container button:hover {
+  filter: brightness(120%);
+}
+.section.profile .container .settings-container .form-container .account-deletion .button-container button.save {
+  background: linear-gradient(to right, #ff4747 0%, #c21a1a 60%);
   background-size: 330% 100%;
   background-position: 25%;
   margin-left: 1rem;

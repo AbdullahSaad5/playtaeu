@@ -235,4 +235,60 @@ class DatabaseController extends Controller
             return back()->with('error', 'Wrong password');
         }
     }
+    public function deleteProfile()
+    {
+        $password = request('password');
+        if (Hash::check($password, Auth::user()->password)) {
+            DB::table('users')
+                ->where('username', Auth::user()->username)
+                ->delete();
+            return redirect('/login')->with('success', 'Profile deleted successfully');
+        } else {
+            return back()->with('error', 'Wrong password');
+        }
+    }
+
+    public function addLike($id)
+    {
+        $username = Auth::user()->username;
+        $like = DB::select('SELECT * FROM likes WHERE likes.review_id = ? AND likes.username = ?', [$id, $username]);
+        if (count($like) == 0) {
+            DB::insert('INSERT INTO likes (username, review_id, type) VALUES (?, ?, ?)', [$username, $id, 'helpful']);
+        } else {
+            DB::table('likes')
+                ->where('review_id', $id)
+                ->where('username', $username)
+                ->update(['type' => 'helpful']);
+        }
+        $totalLikes = DB::select('SELECT COUNT(*) AS total_likes FROM likes WHERE likes.review_id = ? AND likes.type = "helpful"', [$id])[0]->total_likes;
+        $totalDislikes = DB::select('SELECT COUNT(*) AS total_dislikes FROM likes WHERE likes.review_id = ? AND likes.type = "unhelpful"', [$id])[0]->total_dislikes;
+
+        $counts = array(
+            'totalLikes' => $totalLikes,
+            'totalDislikes' => $totalDislikes
+        );
+
+        return $counts;
+    }
+
+    public function addDislike($id)
+    {
+        $username = Auth::user()->username;
+        $like = DB::select('SELECT * FROM likes WHERE likes.review_id = ? AND likes.username = ?', [$id, $username]);
+        if (count($like) == 0) {
+            DB::insert('INSERT INTO likes (username, review_id, type) VALUES (?, ?, ?)', [$username, $id, 'unhelpful']);
+        } else {
+            DB::table('likes')
+                ->where('review_id', $id)
+                ->where('username', $username)
+                ->update(['type' => 'unhelpful']);
+        }
+        $totalLikes = DB::select('SELECT COUNT(*) AS total_likes FROM likes WHERE likes.review_id = ? AND likes.type = "helpful"', [$id])[0]->total_likes;
+        $totalDislikes = DB::select('SELECT COUNT(*) AS total_dislikes FROM likes WHERE likes.review_id = ? AND likes.type = "unhelpful"', [$id])[0]->total_dislikes;
+        $counts = array(
+            'totalLikes' => $totalLikes,
+            'totalDislikes' => $totalDislikes
+        );
+        return $counts;
+    }
 }

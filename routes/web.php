@@ -26,10 +26,7 @@ Route::get('/add-to-cart/id={gameID}', [DatabaseController::class, 'addToCart'])
 Route::get('/checkout', [DatabaseController::class, 'checkout']);
 Route::get('/get-developers/{input}', [DatabaseController::class, 'getDevelopers']);
 Route::get('/get-publishers/{input}', [DatabaseController::class, 'getPublishers']);
-
-// Testings
-
-Route::get('/review', [PageController::class, 'viewReviews']);
+Route::get('/edit-games/id={id}', [DatabaseController::class, 'getPublishers']);
 
 
 // Post Routes
@@ -41,3 +38,6 @@ Route::post('/add-game', [DatabaseController::class, 'addGame']);
 Route::post('/update-profile', [DatabaseController::class, 'updateProfile']);
 Route::post('/update-avatar', [DatabaseController::class, 'updateAvatar']);
 Route::post('/update-password', [DatabaseController::class, 'updatePassword']);
+Route::post('/delete-profile', [DatabaseController::class, 'deleteProfile']);
+Route::post('/game/like-review/id={id}', [DatabaseController::class, 'addLike']);
+Route::post('/game/dislike-review/id={id}', [DatabaseController::class, 'addDislike']);

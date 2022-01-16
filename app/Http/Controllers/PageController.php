@@ -31,9 +31,18 @@ class PageController extends Controller
                 $developers = DB::select('SELECT * FROM developer, develops where developer.developer_id = develops.developer_id AND
                 develops.game_id = ?', [$obj->game_id]);
 
+                $positiveReviewCount = DB::select('SELECT COUNT(*) AS positive FROM review WHERE review.game_id = ? AND review.opinion = "Yes"', [$obj->game_id]);
+                $reviewCount = DB::select('SELECT COUNT(*) as count FROM review WHERE game_id = ?', [$obj->game_id]);
 
                 $obj->publishers = json_encode($publishers);
                 $obj->developers = json_encode($developers);
+                $obj->reviewCount = $reviewCount[0]->count;
+                if ($reviewCount[0]->count != 0) {
+                    $obj->rating = $positiveReviewCount[0]->positive / $reviewCount[0]->count;
+                    $obj->rating = $obj->rating * 100;
+                } else {
+                    $obj->rating = 0;
+                }
             }
             return view('pages.homepage', ['data' => $data]);
         } else {
@@ -109,10 +118,17 @@ class PageController extends Controller
         publishes.game_id = ?', [$id]);
         $developers = DB::select('SELECT * FROM developer, develops where developer.developer_id = develops.developer_id AND
         develops.game_id = ?', [$id]);
+        $reviews = DB::select('SELECT review.review_id, review.username, users.user_avatar, review.opinion, review.post_date, review.message FROM review NATURAL join users where review.game_id = ?', [$id]);
+        foreach ($reviews as $obj) {
+            $likes = DB::select('SELECT COUNT(*) as count FROM likes WHERE review_id = ? AND type="helpful"', [$obj->review_id]);
+            $dislikes = DB::select('SELECT COUNT(*) as count FROM likes WHERE review_id = ? AND type="unhelpful"', [$obj->review_id]);
+            $obj->likes = $likes[0]->count;
+            $obj->dislikes = $dislikes[0]->count;
+        }
         $data->publishers = $publishers;
         $data->developers = $developers;
         if (Auth::check()) {
-            return view('pages.game-page', ['data' => $data]);
+            return view('pages.game-page', ['data' => $data, 'reviews' => $reviews]);
         } else {
             return redirect('/login');
         }
@@ -152,15 +168,12 @@ class PageController extends Controller
         }
     }
 
-
-    // Testings
-    public function viewReviews()
+    public function viewReview()
     {
         if (Auth::check()) {
-            // $data = DB::select('SELECT * FROM review');
-            return view('pages.review');
+            return view('pages.write-review');
         } else {
-            return redirect('/homepage');
+            return redirect('/login');
         }
     }
 }

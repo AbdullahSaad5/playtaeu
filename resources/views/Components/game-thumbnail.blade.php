@@ -48,7 +48,7 @@
 
             <p class="review-count">
                 <span class="gray-text">All Reviews:</span>
-                <span><a href="" class="info-links">{{ $reviewCount }}</a></span>
+                <span>{{ $reviewCount }}</span>
             </p>
             @php
                 $record = DB::select('SELECT cart.game_id FROM cart WHERE cart.username = ? AND cart.game_id = ?', [Auth::user()->username, $gameID]);
