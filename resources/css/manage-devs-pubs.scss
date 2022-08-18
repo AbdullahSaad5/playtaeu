@@ -1,0 +1,94 @@
+.section.manage-section {
+    min-height: calc(100vh - 108px);
+    background: linear-gradient(180deg, #262d33 -3.38%, #1d1e20 78.58%);
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 0 1rem;
+
+    .container {
+        max-width: 1000px;
+        width: 100%;
+        .settings-container {
+            margin-top: 3rem;
+            display: flex;
+            gap: 3rem;
+
+            @media screen and (max-width: 600px) {
+                gap: 1rem;
+            }
+
+            .navigation {
+                flex: 1;
+                min-width: fit-content;
+                padding: 0 1rem;
+
+                @media screen and (max-width: 600px) {
+                    padding: 0;
+                }
+                ul {
+                    list-style: none;
+                    li {
+                        cursor: pointer;
+                        padding: 1rem;
+                        font-size: 1.4rem;
+                        border-radius: 0.3rem;
+                        position: relative;
+                        background-color: transparent;
+                        background: linear-gradient(
+                            to left,
+                            transparent 50%,
+                            #3d4450 50%
+                        );
+                        background-size: 200% 100%;
+                        background-position: right bottom;
+                        transition: all 0.3s ease;
+                        &:not(:first-child) {
+                            margin-top: 1rem;
+                        }
+
+                        &.active {
+                            background-color: #3d4450;
+                        }
+                        &:hover {
+                            background-position: left bottom;
+                        }
+
+                        @media screen and (max-width: 600px) {
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+            .form-container {
+                flex: 4;
+
+                .error {
+                    font-size: 1.7rem;
+                    color: white;
+                    padding: 1rem 2rem;
+                    background-color: #1d1f24;
+                    border: 1px solid #b44040;
+                    margin-bottom: 3rem;
+                }
+
+                .success {
+                    font-size: 1.7rem;
+                    color: white;
+                    padding: 1rem 2rem;
+                    background-color: #1d1f24;
+                    border: 1px solid #44b440;
+                    margin-bottom: 3rem;
+                }
+
+                .hidden {
+                    display: none;
+                }
+
+                @import "addDeveloper";
+                @import "addPublisher";
+                @import "reco`rd";
+            }
+        }
+    }
+}

@@ -3,13 +3,14 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\DB;
 
-class reviewForm extends Component
+class developerRecord extends Component
 {
-    public $gameTitle;
-    public function __construct($gameTitle)
+    public $devs;
+    public function __construct()
     {
-        $this->gameTitle = $gameTitle;
+        $this->devs = DB::select('SELECT * FROM developer');
     }
 
     /**
@@ -19,6 +20,6 @@ class reviewForm extends Component
      */
     public function render()
     {
-        return view('components.review-form');
+        return view('components.developer-record', ['devs' => $this->devs]);
     }
 }

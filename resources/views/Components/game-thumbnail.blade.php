@@ -63,7 +63,7 @@
 
             @else
                 @if (Auth::user()->user_type == 'admin')
-                    <a class="get-button" href="/edit-game/id={{ $gameID }}/edit">Edit Details</a>
+                    <a class="get-button" href="/edit-game/id={{ $gameID }}">Edit Details</a>
                 @else
                     @if ($price == 0)
                         <a class="get-button" href="/add-to-cart/id={{ $gameID }}">Get Now</a>

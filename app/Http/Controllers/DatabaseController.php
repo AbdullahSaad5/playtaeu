@@ -17,11 +17,7 @@ class DatabaseController extends Controller
         $password = request('password');
         if (Auth::attempt(['username' => $username, 'password' => $password])) {
             if (Auth::user()->blocked_status != '1') {
-                if (Auth::user()->user_type == 'admin') {
-                    return redirect('/admin');
-                } else {
-                    return redirect('/homepage');
-                }
+                return redirect('/homepage');
             } else {
                 Auth::logout();
                 return redirect('/login')->with('error', 'Your account has been blocked by Administrator!');
@@ -176,6 +172,70 @@ class DatabaseController extends Controller
         return redirect('/admin');
     }
 
+    public function updateGame($id)
+    {
+        $request = Request::capture();
+        $gameTitle = request('game-title');
+        $gameDescription = request('game-description');
+        $gamePrice = request('game-price');
+        $gameWindowsSupport =  $request->input('game-windows-support');
+        if ($gameWindowsSupport == 'on') {
+            $gameWindowsSupport = 1;
+        } else {
+            $gameWindowsSupport = 0;
+        }
+        $gameMacSupport =  $request->input('game-mac-support');
+        if ($gameMacSupport == 'on') {
+            $gameMacSupport = 1;
+        } else {
+            $gameMacSupport = 0;
+        }
+        $gameLinuxSupport =  $request->input('game-linux-support');
+        if ($gameLinuxSupport == 'on') {
+            $gameLinuxSupport = 1;
+        } else {
+            $gameLinuxSupport = 0;
+        }
+        $gameThumbnailImage = request('game-thumbnail-image');
+        $gameThumbnailVideo = request('game-thumbnail-video');
+        $gameCoverImage = request('game-cover-image');
+        $gameDetailImage1 = request('game-detail-image1');
+        $gameDetailImage2 = request('game-detail-image2');
+        $gameDetailImage3 = request('game-detail-image3');
+        $gameDetailImage4 = request('game-detail-image4');
+        $gameDetailVideo = request('game-detail-video');
+        $gameReleaseDate = request('game-release-date');
+
+        $developerName = request('developer-name');
+        $publisherName = request('publisher-name');
+
+        $developers = DB::select('SELECT developer.developer_id FROM developer WHERE developer.developer_name = ?', [$developerName]);
+        $publishers = DB::select('SELECT publisher.publisher_id FROM publisher WHERE publisher.publisher_name = ?', [$publisherName]);
+
+        if (count($developers) == 0 || count($publishers) == 0) {
+            return back()->with('error', 'Developer or Publisher does not exist');
+        }
+
+        DB::table('game')
+            ->where('game_id', $id)
+            ->update(['game_title' => $gameTitle, 'game_description' => $gameDescription, 'game_price' => $gamePrice, 'game_windows_support' => $gameWindowsSupport, 'game_mac_support' => $gameMacSupport, 'game_linux_support' => $gameLinuxSupport, 'game_thumbnail_image' => $gameThumbnailImage, 'game_thumbnail_video' => $gameThumbnailVideo, 'game_cover_image' => $gameCoverImage, 'game_detail_image1' => $gameDetailImage1, 'game_detail_image2' => $gameDetailImage2, 'game_detail_image3' => $gameDetailImage3, 'game_detail_image4' => $gameDetailImage4, 'game_detail_video', $gameDetailVideo, 'game_release_date', $gameReleaseDate]);
+
+        $gameID = DB::select('SELECT game.game_id FROM game WHERE game.game_title = ?', [$gameTitle])[0]->game_id;
+
+        $developers = $developers[0];
+        $publishers = $publishers[0];
+
+        // Update developer and publishers
+        DB::table('develops')
+            ->where('game_id', $gameID)
+            ->update(['developer_id', $developers->developer_id]);
+
+        DB::table('publishes')
+            ->where('game_id', $gameID)
+            ->update(['publisher_id', $publishers->publisher_id]);
+        return redirect('/admin');
+    }
+
     public function getDevelopers($input)
     {
         $developers = DB::select('SELECT developer.developer_name FROM developer where developer.developer_name LIKE ?', ['%' . $input . '%']);
@@ -290,5 +350,26 @@ class DatabaseController extends Controller
             'totalDislikes' => $totalDislikes
         );
         return $counts;
+    }
+
+    public function addPublisher()
+    {
+        $name = request('publisher-name');
+        $website  = request('publisher-website');
+        $logo = request('publisher-logo');
+
+        DB::insert('INSERT INTO publisher (publisher_name, publisher_website, publisher_logo) VALUES (?, ?, ?)', [$name, $website, $logo]);
+        return redirect()->back()->with('success', 'Publisher added successfully');
+    }
+
+
+    public function addDeveloper()
+    {
+        $name = request('developer-name');
+        $website  = request('developer-website');
+        $logo = request('developer-logo');
+
+        DB::insert('INSERT INTO developer (developer_name, developer_website, developer_logo) VALUES (?, ?, ?)', [$name, $website, $logo]);
+        return redirect()->back()->with('success', 'Developer added successfully');
     }
 }

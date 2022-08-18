@@ -160,7 +160,8 @@
   padding: 0 1rem;
   font-size: 2rem;
 }
-.gamepage .buy-section .offer .button-container a.get-button {
+.gamepage .buy-section .offer .button-container a.get-button,
+.gamepage .buy-section .offer .button-container button.get-button {
   cursor: pointer;
   text-decoration: none;
   padding: 0.8rem 2rem;
@@ -172,10 +173,19 @@
   bottom: 0px;
   border-radius: 0.3rem;
 }
-.gamepage .buy-section .offer .button-container a.get-button.delete {
-  background: linear-gradient(to right, #ff0000 5%, #ff0000 95%);
+.gamepage .buy-section .offer .button-container a.get-button:not(:first-child),
+.gamepage .buy-section .offer .button-container button.get-button:not(:first-child) {
+  margin-left: 0.5rem;
 }
-.gamepage .buy-section .offer .button-container a.get-button:hover {
+.gamepage .buy-section .offer .button-container a.get-button.delete,
+.gamepage .buy-section .offer .button-container button.get-button.delete {
+  background: linear-gradient(to right, #ff4747 0%, #c21a1a 60%);
+  background-size: 330% 100%;
+  background-position: 25%;
+  margin-left: 0.3rem;
+}
+.gamepage .buy-section .offer .button-container a.get-button:hover,
+.gamepage .buy-section .offer .button-container button.get-button:hover {
   filter: brightness(120%);
 }
 

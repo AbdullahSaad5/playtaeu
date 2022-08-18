@@ -163,7 +163,8 @@
                     padding: 0 1rem;
                     font-size: 2rem;
                 }
-                a.get-button {
+                a.get-button,
+                button.get-button {
                     cursor: pointer;
                     text-decoration: none;
                     padding: 0.8rem 2rem;
@@ -179,12 +180,19 @@
                     bottom: 0px;
                     border-radius: 0.3rem;
 
+                    &:not(:first-child) {
+                        margin-left: 0.5rem;
+                    }
+
                     &.delete {
                         background: linear-gradient(
                             to right,
-                            #ff0000 5%,
-                            #ff0000 95%
+                            #ff4747 0%,
+                            #c21a1a 60%
                         );
+                        background-size: 330% 100%;
+                        background-position: 25%;
+                        margin-left: 0.3rem;
                     }
 
                     &:hover {

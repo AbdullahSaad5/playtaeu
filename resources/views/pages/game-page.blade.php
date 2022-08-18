@@ -104,7 +104,7 @@
                         @if (Auth::user()->user_type == 'admin')
                             <p class="price">{{ $data->game_price ? '$' . $data->game_price : 'Free' }}</p>
                             <a class="get-button" href="/edit-game/id={{ $data->game_id }}">Edit Details</a>
-                            <a class="get-button delete" href="/edit-game/id={{ $data->game_id }}">Delete Game</a>
+                            <a class="get-button delete" href="/delete-game/id={{ $data->game_id }}">Delete Game</a>
                         @else
                             @php
                                 $cart = DB::select('SELECT cart.game_id FROM cart WHERE cart.username = ? AND cart.game_id = ?', [Auth::user()->username, $data->game_id]);
@@ -115,6 +115,7 @@
 
                             @elseif (count($own) > 0)
                                 <a class="get-button" href="">Owned</a>
+                                <button class="get-button review-button">Add a review</button>
                             @else
                                 @if ($data->game_price == 0)
                                     <p class="price">Free</p>
@@ -148,7 +149,7 @@
     </section>
     {{-- Review Form Section --}}
     <section class="review-form-section hidden">
-        <x-review-form />
+        <x-review-form :gameTitle="$data->game_title" />
     </section>
 @endsection
 
@@ -156,6 +157,14 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
+
+            $('.review-button').click(function() {
+                $('.review-form-section').removeClass('hidden');
+            })
+
+            $('.review-form-section button.cancel').click(function() {
+                $('.review-form-section').addClass('hidden');
+            })
             // Thumbnails controller
             let main_video = document.querySelector('.main-video');
             let main_img = document.querySelector('.main-img');

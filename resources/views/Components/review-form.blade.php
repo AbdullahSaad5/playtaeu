@@ -1,6 +1,6 @@
 <div class="form-container review-form">
     <h1>Review</h1>
-    <h2>Counter Strike: Global Offence</h3>
+    <h2>{{ $gameTitle }}</h3>
         <form action="">
             <div class="opinion-segment">
                 <p>Would you recommend this game to others players?</p>

@@ -12,8 +12,11 @@
             <li class="nav-item">
                 <a href="/add-game">Add Game</a>
             </li>
+            <li class="nav-item">
+                <a href="/manage-developers-publishers">Developers/Publishers</a>
+            </li>
         @else
-            <li><a href="">Community</a></li>
+            <li><a href="/library">Library</a></li>
         @endif
         <li><a href="">About</a></li>
         @if (Auth::check())

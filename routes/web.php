@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\MailController;
-use Illuminate\Queue\Connectors\DatabaseConnector;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,7 +24,9 @@ Route::get('/add-to-cart/id={gameID}', [DatabaseController::class, 'addToCart'])
 Route::get('/checkout', [DatabaseController::class, 'checkout']);
 Route::get('/get-developers/{input}', [DatabaseController::class, 'getDevelopers']);
 Route::get('/get-publishers/{input}', [DatabaseController::class, 'getPublishers']);
-Route::get('/edit-games/id={id}', [DatabaseController::class, 'getPublishers']);
+Route::get('/edit-game/id={id}', [PageController::class, 'viewEditGame']);
+Route::get('/manage-developers-publishers', [PageController::class, 'viewManageDevsPubs']);
+Route::get('/library', [PageController::class, 'viewLibrary']);
 
 
 // Post Routes
@@ -41,3 +41,6 @@ Route::post('/update-password', [DatabaseController::class, 'updatePassword']);
 Route::post('/delete-profile', [DatabaseController::class, 'deleteProfile']);
 Route::post('/game/like-review/id={id}', [DatabaseController::class, 'addLike']);
 Route::post('/game/dislike-review/id={id}', [DatabaseController::class, 'addDislike']);
+Route::post('add-publisher', [DatabaseController::class, 'addPublisher']);
+Route::post('add-developer', [DatabaseController::class, 'addDeveloper']);
+Route::post('/update-game/id={id}', [DatabaseController::class, 'updateGame']);

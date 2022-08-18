@@ -4,12 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class reviewForm extends Component
+class addDeveloper extends Component
 {
-    public $gameTitle;
-    public function __construct($gameTitle)
+    /**
+     * Create a new component instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $this->gameTitle = $gameTitle;
+        //
     }
 
     /**
@@ -19,6 +23,6 @@ class reviewForm extends Component
      */
     public function render()
     {
-        return view('components.review-form');
+        return view('components.add-developer');
     }
 }

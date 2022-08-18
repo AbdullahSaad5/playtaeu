@@ -1,0 +1,62 @@
+.publisher-form h1 {
+  font-size: 1.6rem;
+  color: #e4e4e4;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 1rem;
+  border-bottom: solid rgba(228, 228, 228, 0.1);
+  position: relative;
+  left: -2rem;
+  width: calc(100% + 2rem);
+  margin-bottom: 3rem;
+}
+@media screen and (max-width: 800px) {
+  .publisher-form h1 {
+    left: 0;
+    width: 100%;
+  }
+}
+.publisher-form label {
+  display: block;
+  font-size: 13px;
+  color: #969696;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.publisher-form input {
+  color: #909090;
+  box-shadow: inset 1px 1px 0px #000a;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-bottom: 3rem;
+  border: none;
+  outline: none;
+  height: 40px;
+  border-radius: 0.3rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+.publisher-form .button-container {
+  padding: 2rem 0;
+  text-align: right;
+}
+.publisher-form .button-container button {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 1rem 8rem;
+  color: white;
+  background-color: #909090;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 0.3rem;
+  margin-bottom: 1rem;
+}
+.publisher-form .button-container button:hover {
+  filter: brightness(120%);
+}
+.publisher-form .button-container button.save {
+  background: linear-gradient(to right, #47bfff 0%, #1a44c2 60%);
+  background-size: 330% 100%;
+  background-position: 25%;
+  margin-left: 1rem;
+}
