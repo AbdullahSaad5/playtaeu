@@ -12,9 +12,8 @@
                     $expire_month = substr($card->expiration_date, -2);
                     $expire_year = substr($card->expiration_date, 0, 4);
                 @endphp
-                <x-card-info :cardID="$card->card_id" :cardType='$card->payment_method'
-                    :ownerName="$card->first_name . ' ' . $card->last_name" :endingNumber="$ending_number"
-                    :expireMonth="$expire_month" :expireYear="$expire_year  " />
+                <x-card-info :cardID="$card->card_id" :cardType='$card->payment_method' :ownerName="$card->first_name . ' ' . $card->last_name" :endingNumber="$ending_number" :expireMonth="$expire_month"
+                    :expireYear="$expire_year" />
             @endforeach
 
             <div class="card">
