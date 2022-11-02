@@ -173,7 +173,7 @@ class PageController extends Controller
         $username = Auth::user()->username;
         $data = DB::select('SELECT payment_card.card_id, payment_card.payment_method, payment_card.card_number, payment_card.first_name, payment_card.last_name, payment_card.expiration_date FROM payment_card WHERE username = ?', [$username]);
         if (count($data) == 0) {
-            return redirect('/addPaymentCard/user=' . $username);
+            return redirect('/addPaymentCard');
         }
         return view('pages.choose-card', ['data' => $data]);
     }
